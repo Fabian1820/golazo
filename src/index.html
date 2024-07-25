@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FútbolPredictor Pro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #f39c12;
+            --bg-color: #ecf0f1;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color), #bdc3c7);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(45deg, var(--primary-color), #2980b9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: glowText 2s infinite alternate;
+        }
+
+        @keyframes glowText {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px var(--accent-color), 0 0 35px var(--accent-color);
+            }
+
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px var(--accent-color), 0 0 70px var(--accent-color);
+            }
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .selection-area {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .team-select,
+        .player-select {
+            flex-basis: 48%;
+            margin-bottom: 1rem;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #f6f6f6, #ffffff);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover,
+        select:focus,
+        input:hover,
+        input:focus {
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--accent-color), #e67e22);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .stat-card:hover::before {
+            top: -75%;
+            left: -75%;
+        }
+
+        .stat-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+
+        .predict-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .predict-button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .ball {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: url('https://th.bing.com/th/id/R.012df009c074cef852c05719b6b6a73a?rik=8JwUK1wJpeCVdA&riu=http%3a%2f%2fpngimg.com%2fuploads%2ffootball%2ffootball_PNG28463.png&ehk=6RMaxoPmvVy%2fIGf7UN0VLHarNF8Hz5UepNJFwLJL7lk%3d&risl=&pid=ImgRaw&r=0') no-repeat;
+            background-size: contain;
+            animation: kick 20s infinite linear;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        @keyframes kick {
+            0% {
+                top: -50px;
+                left: 0;
+                transform: rotate(0deg);
+            }
+
+            25% {
+                top: 50%;
+                left: 25%;
+                transform: rotate(270deg);
+            }
+
+            50% {
+                top: 100%;
+                left: 50%;
+                transform: rotate(540deg);
+            }
+
+            75% {
+                top: 50%;
+                left: 75%;
+                transform: rotate(810deg);
+            }
+
+            100% {
+                top: -50px;
+                left: 100%;
+                transform: rotate(1080deg);
+            }
+        }
+
+        .player-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .player-stat {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .player-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+
+            .team-select,
+            .player-select {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball"></div>
+    <header>
+        <h1>⚽ FútbolPredictor Pro 🔮</h1>
+    </header>
+    <div class="container">
+        <section class="section">
+            <h2>Selección de Equipos</h2>
+            <div class="selection-area">
+                <div class="team-select">
+                    <h3>🏠 Equipo Local</h3>
+                    <select id="local-league">
+                        <option value="">Selecciona una liga</option>
+                        <option value="premier">Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿</option>
+                        <option value="laliga">La Liga 🇪🇸</option>
+                        <option value="bundesliga">Bundesliga 🇩🇪</option>
+                    </select>
+                    <select id="local-team">
+                        <option value="">Selecciona un equipo</option>
+                    </select>
+                </div>
+                <div class="team-select">
+                    <h3>✈️ Equipo Visitante</h3>
+                    <select id="visitor-league">
+                        <option value="">Selecciona una liga</option>
+                        <option value="premier">Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿</option>
+                        <option value="laliga">La Liga 🇪🇸</option>
+                        <option value="bundesliga">Bundesliga 🇩🇪</option>
+                    </select>
+                    <select id="visitor-team">
+                        <option value="">Selecciona un equipo</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Selección de Jugador</h2>
+            <div class="player-select">
+                <input type="text" id="player-search" placeholder="Buscar jugador...">
+                <select id="player-select">
+                    <option value="">Selecciona un jugador</option>
+                </select>
+            </div>
+            <div class="player-stats">
+                <div class="player-stat">
+                    <h4>Probabilidad de gol</h4>
+                    <p id="player-goal-probability">-</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📊 Predicciones y Estadísticas</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>⚽ Goles Esperados (Local)</h3>
+                    <p id="local-goals">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>⚽ Goles Esperados (Visitante)</h3>
+                    <p id="visitor-goals">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>⚽ Goles Totales Esperados</h3>
+                    <p id="total-goals">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🥅 Probabilidades de Goles (Local)</h3>
+                    <p id="local-goals-prob">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🥅 Probabilidades de Goles (Visitante)</h3>
+                    <p id="visitor-goals-prob">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🥅 Probabilidades de Goles Totales</h3>
+                    <p id="total-goals-prob">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🟨 Probabilidad de Tarjetas Amarillas</h3>
+                    <p id="yellow-card-probability">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🟥 Probabilidad de Tarjeta Roja</h3>
+                    <p id="red-card-probability">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🎯 Tiros a Puerta (Local)</h3>
+                    <p id="local-shots-on-target">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🎯 Tiros a Puerta (Visitante)</h3>
+                    <p id="visitor-shots-on-target">-</p>
+                </div>
+            </div>
+            <button class="predict-button">Obtener Predicciones</button>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        $(document).ready(function () {
+            function updateTeams(leagueSelect, teamSelect) {
+                var league = $(leagueSelect).val();
+                var teams = {
+                    'premier': ['Manchester United', 'Liverpool', 'Chelsea', 'Arsenal'],
+                    'laliga': ['Real Madrid', 'Barcelona', 'Atlético Madrid', 'Sevilla'],
+                    'bundesliga': ['Bayern Munich', 'Borussia Dortmund', 'RB Leipzig', 'Bayer Leverkusen']
+                };
+
+                $(teamSelect).empty();
+                $(teamSelect).append('<option value="">Selecciona un equipo</option>');
+                if (league in teams) {
+                    teams[league].forEach(function (team) {
+                        $(teamSelect).append(`<option value="${team}">${team}</option>`);
+                    });
+                }
+            }
+
+            $('#local-league').change(function () {
+                updateTeams('#local-league', '#local-team');
+            });
+
+            $('#visitor-league').change(function () {
+                updateTeams('#visitor-league', '#visitor-team');
+            });
+
+            function getPredictions() {
+                var homeTeam = $('#local-team').val();
+                var awayTeam = $('#visitor-team').val();
+
+                if (!homeTeam || !awayTeam) {
+                    alert('Por favor, selecciona ambos equipos');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/api/predict',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ home_team: homeTeam, away_team: awayTeam }),
+                    success: function (response) {
+                        $('#local-goals').text(response.home_goals.toFixed(2));
+                        $('#visitor-goals').text(response.away_goals.toFixed(2));
+                        $('#total-goals').text(response.total_goals.toFixed(2));
+
+                        $('#local-goals-prob').html(
+                            `0 goles: ${(response.home_probs[0] * 100).toFixed(2)}%<br>` +
+                            `1 gol: ${(response.home_probs[1] * 100).toFixed(2)}%<br>` +
+                            `2 goles: ${(response.home_probs[2] * 100).toFixed(2)}%<br>` +
+                            `3 o más goles: ${(response.home_probs[3] * 100).toFixed(2)}%`
+                        );
+
+                        $('#visitor-goals-prob').html(
+                            `0 goles: ${(response.away_probs[0] * 100).toFixed(2)}%<br>` +
+                            `1 gol: ${(response.away_probs[1] * 100).toFixed(2)}%<br>` +
+                            `2 goles: ${(response.away_probs[2] * 100).toFixed(2)}%<br>` +
+                            `3 o más goles: ${(response.away_probs[3] * 100).toFixed(2)}%`
+                        );
+
+                        $('#total-goals-prob').html(
+                            `0 goles: ${(response.total_probs[0] * 100).toFixed(2)}%<br>` +
+                            `1 gol: ${(response.total_probs[1] * 100).toFixed(2)}%<br>` +
+                            `2 goles: ${(response.total_probs[2] * 100).toFixed(2)}%<br>` +
+                            `3 o más goles: ${(response.total_probs[3] * 100).toFixed(2)}%`
+                        );
+
+                        $('#yellow-card-probability').html(
+                            `1-3 tarjetas: ${(response.yellow_card_probs[0] * 100).toFixed(2)}%<br>` +
+                            `4-6 tarjetas: ${(response.yellow_card_probs[1] * 100).toFixed(2)}%<br>` +
+                            `7-9 tarjetas: ${(response.yellow_card_probs[2] * 100).toFixed(2)}%<br>` +
+                            `10 o más tarjetas: ${(response.yellow_card_probs[3] * 100).toFixed(2)}%`
+                        );
+
+                        $('#red-card-probability').text((response.red_card_prob * 100).toFixed(2) + '%');
+
+                        $('#local-shots-on-target').html(
+                            `Menos de 2: ${(response.h_shots_probs[0] * 100).toFixed(2)}%<br>` +
+                            `Entre 2 y 5: ${(response.h_shots_probs[1] * 100).toFixed(2)}%<br>` +
+                            `Más de 5: ${(response.h_shots_probs[2] * 100).toFixed(2)}%`
+                        );
+
+                        $('#visitor-shots-on-target').html(
+                            `Menos de 2: ${(response.a_shots_probs[0] * 100).toFixed(2)}%<br>` +
+                            `Entre 2 y 5: ${(response.a_shots_probs[1] * 100).toFixed(2)}%<br>` +
+                            `Más de 5: ${(response.a_shots_probs[2] * 100).toFixed(2)}%`
+                        );
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error al obtener predicciones:', error);
+                        var errorMessage = 'Error desconocido';
+                        if (xhr.responseJSON && xhr.responseJSON.error) {
+                            errorMessage = xhr.responseJSON.error;
+                        } else if (xhr.responseText) {
+                            errorMessage = xhr.responseText;
+                        }
+
+                        // Crear una nueva ventana con el mensaje de error
+                        var errorWindow = window.open('', 'Error', 'width=600,height=400');
+                        errorWindow.document.write('<html><head><title>Error</title></head><body>');
+                        errorWindow.document.write('<h2>Error al obtener las predicciones:</h2>');
+                        errorWindow.document.write('<pre>' + errorMessage + '</pre>');
+                        errorWindow.document.write('</body></html>');
+                        errorWindow.document.close();
+                    }
+                });
+            }
+
+            function getPlayerPrediction() {
+                var playerName = $('#player-select').val();
+                var homeTeam = $('#local-team').val();
+                var awayTeam = $('#visitor-team').val();
+
+                if (!playerName || !homeTeam || !awayTeam) {
+                    alert('Por favor, selecciona un jugador y ambos equipos');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/api/predict_player',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ player_name: playerName, home_team: homeTeam, away_team: awayTeam }),
+                    success: function (response) {
+                        $('#player-goal-probability').text((response.goal_probability * 100).toFixed(2) + '%');
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error al obtener predicción del jugador:', error);
+                        var errorMessage = 'Error desconocido';
+                        if (xhr.responseJSON && xhr.responseJSON.error) {
+                            errorMessage = xhr.responseJSON.error;
+                        } else if (xhr.responseText) {
+                            errorMessage = xhr.responseText;
+                        }
+                        alert('Error al obtener la predicción del jugador: ' + errorMessage);
+                    }
+                });
+            }
+
+            $('#player-search').on('input', function () {
+                var searchTerm = $(this).val().toLowerCase();
+                var players = ['Lionel Messi', 'Cristiano Ronaldo', 'Neymar', 'Kylian Mbappé', 'Luck Shaw'];
+                var filteredPlayers = players.filter(player => player.toLowerCase().includes(searchTerm));
+
+                $('#player-select').empty();
+                $('#player-select').append('<option value="">Selecciona un jugador</option>');
+                filteredPlayers.forEach(function (player) {
+                    $('#player-select').append(`<option value="${player}">${player}</option>`);
+                });
+            });
+
+            $('.predict-button').click(function () {
+                getPredictions();
+                getPlayerPrediction();
+            });
+        });
+    </script>
+</body>    <script>
+
+</html>

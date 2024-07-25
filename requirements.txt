@@ -1,0 +1,11 @@
+# Dev environment
+pip
+autopep8
+
+# App
+flask
+pandas
+numpy
+scipy
+scikit-learn
+matplotlib
