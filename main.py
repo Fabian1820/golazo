@@ -31,8 +31,8 @@ def get_players(team):
 @app.route("/api/predict", methods=['POST'])
 def predict():
     data = request.json
-    home_team = data['team_h']  # Cambiado de 'home_team' a 'team_h'
-    away_team = data['team_a']  # Cambiado de 'away_team' a 'team_a'
+    home_team = data['team_h']  
+    away_team = data['team_a'] 
     predictions = get_predictions(home_team, away_team)
     return jsonify(predictions)
 
@@ -40,8 +40,8 @@ def predict():
 def predict_player():
     data = request.json
     player_name = data['player_name']
-    home_team = data['team_h']  # Cambiado de 'home_team' a 'team_h'
-    away_team = data['team_a']  # Cambiado de 'away_team' a 'team_a'
+    home_team = data['team_h']  
+    away_team = data['team_a']  
     prediction = get_player_prediction(player_name, home_team, away_team)
     return jsonify(prediction)
 

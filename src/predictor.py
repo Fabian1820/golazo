@@ -159,7 +159,7 @@ def predecir_gol_jugador(player_name, home_team, away_team, matches, rosters, rf
         print(f"Error en predecir_gol_jugador: {e}")
         return 0.05  # Valor base más realista en caso de error
 
-# Cargar datos (deberás implementar esto según cómo almacenes tus datos)
+# Cargar datos 
 matches = pd.read_csv('/home/user/fabian-python/src/soccer/Matches.csv')
 rosters = pd.read_csv('/home/user/fabian-python/src/soccer/Rosters.csv')
 
@@ -175,13 +175,13 @@ def get_predictions(home_team, away_team):
         "home_goals": float(home_goals),
         "away_goals": float(away_goals),
         "total_goals": float(total_goals),
-        "home_probs": list(home_probs),  # Cambiado de .tolist() a list()
-        "away_probs": list(away_probs),  # Cambiado de .tolist() a list()
-        "total_probs": list(total_probs),  # Cambiado de .tolist() a list()
-        "yellow_card_probs": list(yellow_card_probs),  # Cambiado de .tolist() a list()
+        "home_probs": list(home_probs),  
+        "away_probs": list(away_probs), 
+        "total_probs": list(total_probs),  
+        "yellow_card_probs": list(yellow_card_probs), 
         "red_card_prob": float(red_card_prob),
-        "h_shots_probs": list(h_shots_probs),  # Cambiado de .tolist() a list()
-        "a_shots_probs": list(a_shots_probs)  # Cambiado de .tolist() a list()
+        "h_shots_probs": list(h_shots_probs),  
+        "a_shots_probs": list(a_shots_probs)  
     }
 
 def get_player_prediction(player_name, home_team, away_team):
