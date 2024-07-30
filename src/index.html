@@ -38,20 +38,17 @@
         }
 
         header {
-            background: linear-gradient(45deg, var(--primary-color), #2980b9);
+            background: var(--primary-color);
             color: white;
             text-align: center;
             padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: glowText 2s infinite alternate;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes glowText {
@@ -285,7 +282,7 @@
 <body>
     <div class="ball"></div>
     <header>
-        <h1>⚽ FútbolPredictor Pro 🔮</h1>
+        <h1>FútbolPredictor Pro</h1>
     </header>
     <div class="container">
         <section class="section">
@@ -321,7 +318,6 @@
         <section class="section">
             <h2>Selección de Jugador</h2>
             <div class="player-select">
-                <input type="text" id="player-search" placeholder="Buscar jugador...">
                 <select id="player-select">
                     <option value="">Selecciona un jugador</option>
                 </select>
@@ -383,163 +379,173 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-        $(document).ready(function () {
-            function updateTeams(leagueSelect, teamSelect) {
-                var league = $(leagueSelect).val();
-                var teams = {
-                    'premier': ['Manchester United', 'Liverpool', 'Chelsea', 'Arsenal'],
-                    'laliga': ['Real Madrid', 'Barcelona', 'Atlético Madrid', 'Sevilla'],
-                    'bundesliga': ['Bayern Munich', 'Borussia Dortmund', 'RB Leipzig', 'Bayer Leverkusen']
-                };
-
-                $(teamSelect).empty();
-                $(teamSelect).append('<option value="">Selecciona un equipo</option>');
-                if (league in teams) {
-                    teams[league].forEach(function (team) {
-                        $(teamSelect).append(`<option value="${team}">${team}</option>`);
-                    });
-                }
-            }
-
-            $('#local-league').change(function () {
-                updateTeams('#local-league', '#local-team');
-            });
-
-            $('#visitor-league').change(function () {
-                updateTeams('#visitor-league', '#visitor-team');
-            });
-
-            function getPredictions() {
-                var homeTeam = $('#local-team').val();
-                var awayTeam = $('#visitor-team').val();
-
-                if (!homeTeam || !awayTeam) {
-                    alert('Por favor, selecciona ambos equipos');
-                    return;
-                }
-
-                $.ajax({
-                    url: '/api/predict',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({ home_team: homeTeam, away_team: awayTeam }),
-                    success: function (response) {
-                        $('#local-goals').text(response.home_goals.toFixed(2));
-                        $('#visitor-goals').text(response.away_goals.toFixed(2));
-                        $('#total-goals').text(response.total_goals.toFixed(2));
-
-                        $('#local-goals-prob').html(
-                            `0 goles: ${(response.home_probs[0] * 100).toFixed(2)}%<br>` +
-                            `1 gol: ${(response.home_probs[1] * 100).toFixed(2)}%<br>` +
-                            `2 goles: ${(response.home_probs[2] * 100).toFixed(2)}%<br>` +
-                            `3 o más goles: ${(response.home_probs[3] * 100).toFixed(2)}%`
-                        );
-
-                        $('#visitor-goals-prob').html(
-                            `0 goles: ${(response.away_probs[0] * 100).toFixed(2)}%<br>` +
-                            `1 gol: ${(response.away_probs[1] * 100).toFixed(2)}%<br>` +
-                            `2 goles: ${(response.away_probs[2] * 100).toFixed(2)}%<br>` +
-                            `3 o más goles: ${(response.away_probs[3] * 100).toFixed(2)}%`
-                        );
-
-                        $('#total-goals-prob').html(
-                            `0 goles: ${(response.total_probs[0] * 100).toFixed(2)}%<br>` +
-                            `1 gol: ${(response.total_probs[1] * 100).toFixed(2)}%<br>` +
-                            `2 goles: ${(response.total_probs[2] * 100).toFixed(2)}%<br>` +
-                            `3 o más goles: ${(response.total_probs[3] * 100).toFixed(2)}%`
-                        );
-
-                        $('#yellow-card-probability').html(
-                            `1-3 tarjetas: ${(response.yellow_card_probs[0] * 100).toFixed(2)}%<br>` +
-                            `4-6 tarjetas: ${(response.yellow_card_probs[1] * 100).toFixed(2)}%<br>` +
-                            `7-9 tarjetas: ${(response.yellow_card_probs[2] * 100).toFixed(2)}%<br>` +
-                            `10 o más tarjetas: ${(response.yellow_card_probs[3] * 100).toFixed(2)}%`
-                        );
-
-                        $('#red-card-probability').text((response.red_card_prob * 100).toFixed(2) + '%');
-
-                        $('#local-shots-on-target').html(
-                            `Menos de 2: ${(response.h_shots_probs[0] * 100).toFixed(2)}%<br>` +
-                            `Entre 2 y 5: ${(response.h_shots_probs[1] * 100).toFixed(2)}%<br>` +
-                            `Más de 5: ${(response.h_shots_probs[2] * 100).toFixed(2)}%`
-                        );
-
-                        $('#visitor-shots-on-target').html(
-                            `Menos de 2: ${(response.a_shots_probs[0] * 100).toFixed(2)}%<br>` +
-                            `Entre 2 y 5: ${(response.a_shots_probs[1] * 100).toFixed(2)}%<br>` +
-                            `Más de 5: ${(response.a_shots_probs[2] * 100).toFixed(2)}%`
-                        );
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('Error al obtener predicciones:', error);
-                        var errorMessage = 'Error desconocido';
-                        if (xhr.responseJSON && xhr.responseJSON.error) {
-                            errorMessage = xhr.responseJSON.error;
-                        } else if (xhr.responseText) {
-                            errorMessage = xhr.responseText;
-                        }
-
-                        // Crear una nueva ventana con el mensaje de error
-                        var errorWindow = window.open('', 'Error', 'width=600,height=400');
-                        errorWindow.document.write('<html><head><title>Error</title></head><body>');
-                        errorWindow.document.write('<h2>Error al obtener las predicciones:</h2>');
-                        errorWindow.document.write('<pre>' + errorMessage + '</pre>');
-                        errorWindow.document.write('</body></html>');
-                        errorWindow.document.close();
-                    }
-                });
-            }
-
-            function getPlayerPrediction() {
-                var playerName = $('#player-select').val();
-                var homeTeam = $('#local-team').val();
-                var awayTeam = $('#visitor-team').val();
-
-                if (!playerName || !homeTeam || !awayTeam) {
-                    alert('Por favor, selecciona un jugador y ambos equipos');
-                    return;
-                }
-
-                $.ajax({
-                    url: '/api/predict_player',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({ player_name: playerName, home_team: homeTeam, away_team: awayTeam }),
-                    success: function (response) {
-                        $('#player-goal-probability').text((response.goal_probability * 100).toFixed(2) + '%');
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('Error al obtener predicción del jugador:', error);
-                        var errorMessage = 'Error desconocido';
-                        if (xhr.responseJSON && xhr.responseJSON.error) {
-                            errorMessage = xhr.responseJSON.error;
-                        } else if (xhr.responseText) {
-                            errorMessage = xhr.responseText;
-                        }
-                        alert('Error al obtener la predicción del jugador: ' + errorMessage);
-                    }
-                });
-            }
-
-            $('#player-search').on('input', function () {
-                var searchTerm = $(this).val().toLowerCase();
-                var players = ['Lionel Messi', 'Cristiano Ronaldo', 'Neymar', 'Kylian Mbappé', 'Luck Shaw'];
-                var filteredPlayers = players.filter(player => player.toLowerCase().includes(searchTerm));
-
-                $('#player-select').empty();
-                $('#player-select').append('<option value="">Selecciona un jugador</option>');
-                filteredPlayers.forEach(function (player) {
-                    $('#player-select').append(`<option value="${player}">${player}</option>`);
-                });
-            });
-
-            $('.predict-button').click(function () {
-                getPredictions();
-                getPlayerPrediction();
+<script>
+    $(document).ready(function () {
+        // Cargar ligas
+        $.get('/api/leagues', function(leagues) {
+            $('#local-league, #visitor-league').empty().append('<option value="">Selecciona una liga</option>');
+            leagues.forEach(function(league) {
+                $('#local-league, #visitor-league').append(`<option value="${league}">${league}</option>`);
             });
         });
-    </script>
-</body>    <script>
 
-</html>
+        function updateTeams(leagueSelect, teamSelect) {
+            var league = $(leagueSelect).val();
+            if (league) {
+                $.get('/api/teams/' + league, function(teams) {
+                    $(teamSelect).empty().append('<option value="">Selecciona un equipo</option>');
+                    teams.forEach(function(team) {
+                        $(teamSelect).append(`<option value="${team}">${team}</option>`);
+                    });
+                });
+            } else {
+                $(teamSelect).empty().append('<option value="">Selecciona un equipo</option>');
+            }
+        }
+
+        $('#local-league').change(function () {
+            updateTeams('#local-league', '#local-team');
+        });
+
+        $('#visitor-league').change(function () {
+            updateTeams('#visitor-league', '#visitor-team');
+        });
+
+        function updatePlayers() {
+            var homeTeam = $('#local-team').val();
+            var awayTeam = $('#visitor-team').val();
+            if (homeTeam && awayTeam) {
+                $.get('/api/players/' + homeTeam, function(homePlayers) {
+                    $.get('/api/players/' + awayTeam, function(awayPlayers) {
+                        var allPlayers = homePlayers.concat(awayPlayers);
+                        $('#player-select').empty().append('<option value="">Selecciona un jugador</option>');
+                        allPlayers.forEach(function(player) {
+                            $('#player-select').append(`<option value="${player}">${player}</option>`);
+                        });
+                    });
+                });
+            } else {
+                $('#player-select').empty().append('<option value="">Selecciona un jugador</option>');
+            }
+        }
+
+        $('#local-team, #visitor-team').change(updatePlayers);
+
+        function getPredictions() {
+            var homeTeam = $('#local-team').val();
+            var awayTeam = $('#visitor-team').val();
+
+            if (!homeTeam || !awayTeam) {
+                alert('Por favor, selecciona ambos equipos');
+                return;
+            }
+
+            $.ajax({
+                url: '/api/predict',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ team_h: homeTeam, team_a: awayTeam }), // Cambio aquí
+                success: function (response) {
+                    $('#local-goals').text(response.home_goals.toFixed(2));
+                    $('#visitor-goals').text(response.away_goals.toFixed(2));
+                    $('#total-goals').text(response.total_goals.toFixed(2));
+
+                    $('#local-goals-prob').html(
+                        `0 goles: ${(response.home_probs[0] * 100).toFixed(2)}%<br>` +
+                        `1 gol: ${(response.home_probs[1] * 100).toFixed(2)}%<br>` +
+                        `2 goles: ${(response.home_probs[2] * 100).toFixed(2)}%<br>` +
+                        `3 o más goles: ${(response.home_probs[3] * 100).toFixed(2)}%`
+                    );
+
+                    $('#visitor-goals-prob').html(
+                        `0 goles: ${(response.away_probs[0] * 100).toFixed(2)}%<br>` +
+                        `1 gol: ${(response.away_probs[1] * 100).toFixed(2)}%<br>` +
+                        `2 goles: ${(response.away_probs[2] * 100).toFixed(2)}%<br>` +
+                        `3 o más goles: ${(response.away_probs[3] * 100).toFixed(2)}%`
+                    );
+
+                    $('#total-goals-prob').html(
+                        `0 goles: ${(response.total_probs[0] * 100).toFixed(2)}%<br>` +
+                        `1 gol: ${(response.total_probs[1] * 100).toFixed(2)}%<br>` +
+                        `2 goles: ${(response.total_probs[2] * 100).toFixed(2)}%<br>` +
+                        `3 o más goles: ${(response.total_probs[3] * 100).toFixed(2)}%`
+                    );
+
+                    $('#yellow-card-probability').html(
+                        `1-3 tarjetas: ${(response.yellow_card_probs[0] * 100).toFixed(2)}%<br>` +
+                        `4-6 tarjetas: ${(response.yellow_card_probs[1] * 100).toFixed(2)}%<br>` +
+                        `7-9 tarjetas: ${(response.yellow_card_probs[2] * 100).toFixed(2)}%<br>` +
+                        `10 o más tarjetas: ${(response.yellow_card_probs[3] * 100).toFixed(2)}%`
+                    );
+
+                    $('#red-card-probability').text((response.red_card_prob * 100).toFixed(2) + '%');
+
+                    $('#local-shots-on-target').html(
+                        `Menos de 2: ${(response.h_shots_probs[0] * 100).toFixed(2)}%<br>` +
+                        `Entre 2 y 5: ${(response.h_shots_probs[1] * 100).toFixed(2)}%<br>` +
+                        `Más de 5: ${(response.h_shots_probs[2] * 100).toFixed(2)}%`
+                    );
+
+                    $('#visitor-shots-on-target').html(
+                        `Menos de 2: ${(response.a_shots_probs[0] * 100).toFixed(2)}%<br>` +
+                        `Entre 2 y 5: ${(response.a_shots_probs[1] * 100).toFixed(2)}%<br>` +
+                        `Más de 5: ${(response.a_shots_probs[2] * 100).toFixed(2)}%`
+                    );
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error al obtener predicciones:', error);
+                    var errorMessage = 'Error desconocido';
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMessage = xhr.responseJSON.error;
+                    } else if (xhr.responseText) {
+                        errorMessage = xhr.responseText;
+                    }
+
+                    // Crear una nueva ventana con el mensaje de error
+                    var errorWindow = window.open('', 'Error', 'width=600,height=400');
+                    errorWindow.document.write('<html><head><title>Error</title></head><body>');
+                    errorWindow.document.write('<h2>Error al obtener las predicciones:</h2>');
+                    errorWindow.document.write('<pre>' + errorMessage + '</pre>');
+                    errorWindow.document.write('</body></html>');
+                    errorWindow.document.close();
+                }
+            });
+        }
+
+        function getPlayerPrediction() {
+            var playerName = $('#player-select').val();
+            var homeTeam = $('#local-team').val();
+            var awayTeam = $('#visitor-team').val();
+
+            if (!playerName || !homeTeam || !awayTeam) {
+                alert('Por favor, selecciona un jugador(opcional) y ambos equipos');
+                return;
+            }
+
+            $.ajax({
+                url: '/api/predict_player',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ player_name: playerName, team_h: homeTeam, team_a: awayTeam }), // Cambio aquí
+                success: function (response) {
+                    $('#player-goal-probability').text((response.goal_probability * 100).toFixed(2) + '%');
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error al obtener predicción del jugador:', error);
+                    var errorMessage = 'Error desconocido';
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMessage = xhr.responseJSON.error;
+                    } else if (xhr.responseText) {
+                        errorMessage = xhr.responseText;
+                    }
+                    alert('Error al obtener la predicción del jugador: ' + errorMessage);
+                }
+            });
+        }
+
+        $('.predict-button').click(function () {
+            getPredictions();
+            getPlayerPrediction();
+        });
+    });
+</script>

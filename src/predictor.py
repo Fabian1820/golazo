@@ -85,54 +85,79 @@ def predecir_goles_y_probabilidades(home_team, away_team, matches, rf_model_home
     return home_goals, away_goals, total_goals, home_probs, away_probs, total_probs, yellow_card_probs, red_card_prob, h_shots_probs, a_shots_probs
 
 def predecir_gol_jugador(player_name, home_team, away_team, matches, rosters, rf_model_home, rf_model_away):
-    player_matches = rosters[rosters['player'] == player_name].sort_values('match_id').tail(10)
+    try:
+        # Filtrar los partidos relevantes
+        relevant_matches = matches[(matches['team_h'] == home_team) | (matches['team_a'] == away_team) |
+                                   (matches['team_h'] == away_team) | (matches['team_a'] == home_team)]
+        if relevant_matches.empty:
+            print(f"No se encontraron partidos para {home_team} o {away_team}")
+            return 0.05  # Valor base más realista
 
-    if player_matches.empty:
-        print(f"No se encontraron datos para el jugador {player_name}")
-        return 0.0
+        # Obtener el último partido de cada equipo
+        last_home_match = relevant_matches[relevant_matches['team_h'] == home_team].sort_values('date').iloc[-1]
+        last_away_match = relevant_matches[relevant_matches['team_a'] == away_team].sort_values('date').iloc[-1]
 
-    goals_per_match = player_matches['goals'].mean()
-    xg_per_match = player_matches['xG'].mean()
-    minutes_per_match = player_matches['time'].mean()
+        # Filtrar los datos del jugador
+        player_matches = rosters[rosters['player'] == player_name]
+        if player_matches.empty:
+            print(f"No se encontraron datos para el jugador {player_name}")
+            return 0.05  # Valor base más realista
 
-    team = player_matches.iloc[-1]['team']
-    is_home = team == home_team
+        # Calcular estadísticas del jugador
+        goals_per_match = player_matches['goals'].mean()
+        xg_per_match = player_matches['xG'].mean()
+        minutes_per_match = player_matches['time'].mean()
 
-    home_data = matches[matches['team_h'] == home_team].sort_values('date').iloc[-1]
-    away_data = matches[matches['team_a'] == away_team].sort_values('date').iloc[-1]
+        # Si el jugador no tiene estadísticas, usar promedios de la liga
+        if pd.isna(goals_per_match) or goals_per_match == 0:
+            goals_per_match = rosters['goals'].mean()
+        if pd.isna(xg_per_match) or xg_per_match == 0:
+            xg_per_match = rosters['xG'].mean()
+        if pd.isna(minutes_per_match) or minutes_per_match == 0:
+            minutes_per_match = rosters['time'].mean()
 
-    input_data = pd.DataFrame({
-        'h_shot': [home_data['h_shot']],
-        'a_shot': [away_data['a_shot']],
-        'h_shotOnTarget': [home_data['h_shotOnTarget']],
-        'a_shotOnTarget': [away_data['a_shotOnTarget']],
-        'h_deep': [home_data['h_deep']],
-        'a_deep': [away_data['a_deep']],
-        'h_ppda': [home_data['h_ppda']],
-        'a_ppda': [away_data['a_ppda']]
-    })
+        # Determinar si el jugador es local o visitante
+        is_home = player_matches.iloc[-1]['team'] == home_team if not player_matches.empty else True
 
-    team_goals = rf_model_home.predict(input_data)[0] if is_home else rf_model_away.predict(input_data)[0]
+        # Preparar datos para el modelo
+        input_data = pd.DataFrame({
+            'h_shot': [max(last_home_match['h_shot'], 1)],
+            'a_shot': [max(last_away_match['a_shot'], 1)],
+            'h_shotOnTarget': [max(last_home_match['h_shotOnTarget'], 1)],
+            'a_shotOnTarget': [max(last_away_match['a_shotOnTarget'], 1)],
+            'h_deep': [max(last_home_match['h_deep'], 1)],
+            'a_deep': [max(last_away_match['a_deep'], 1)],
+            'h_ppda': [max(last_home_match['h_ppda'], 0.1)],
+            'a_ppda': [max(last_away_match['a_ppda'], 0.1)]
+        })
 
-    team_avg_goals = matches[matches['team_h' if is_home else 'team_a'] == team]['h_goals' if is_home else 'a_goals'].mean()
-    team_avg_goals = max(team_avg_goals, 0.1)
+        # Predecir goles del equipo
+        team_goals = max(rf_model_home.predict(input_data)[0] if is_home else rf_model_away.predict(input_data)[0], 0.1)
 
-    team_goal_ratio = team_goals / team_avg_goals
+        # Calcular el ratio de goles del equipo
+        team_avg_goals = max(relevant_matches['h_goals' if is_home else 'a_goals'].mean(), 0.1)
+        team_goal_ratio = team_goals / team_avg_goals
 
-    expected_minutes = min(minutes_per_match, 90)
-    minutes_factor = expected_minutes / 90
+        # Calcular la probabilidad base
+        expected_minutes = min(minutes_per_match, 90)
+        minutes_factor = expected_minutes / 90
+        base_prob = 1 - np.exp(-(goals_per_match * team_goal_ratio * minutes_factor))
 
-    base_prob = 1 - np.exp(-(goals_per_match * team_goal_ratio * minutes_factor))
+        # Ajustar por xG
+        xg_factor = min(max(xg_per_match / max(goals_per_match, 0.01), 0.5), 2)
 
-    xg_factor = xg_per_match / max(goals_per_match, 0.01)
-    xg_factor = min(max(xg_factor, 0.5), 2)
+        # Ajustar por posición
+        position = player_matches.iloc[-1]['position'] if not player_matches.empty else 'M'
+        position_factor = 1.5 if position in ['FW', 'F'] else 1.0 if position in ['M', 'MC'] else 0.5
 
-    position = player_matches.iloc[-1]['position']
-    position_factor = 1.2 if position == 'F' else 1.0 if position == 'M' else 0.5
+        # Calcular la probabilidad ajustada final
+        adjusted_goal_prob = base_prob * xg_factor * position_factor
 
-    adjusted_goal_prob = base_prob * xg_factor * position_factor
+        return min(max(adjusted_goal_prob, 0.01), 0.99)
 
-    return min(max(adjusted_goal_prob, 0.01), 0.99)
+    except Exception as e:
+        print(f"Error en predecir_gol_jugador: {e}")
+        return 0.05  # Valor base más realista en caso de error
 
 # Cargar datos (deberás implementar esto según cómo almacenes tus datos)
 matches = pd.read_csv('/home/user/fabian-python/src/soccer/Matches.csv')
