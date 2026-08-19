@@ -1,1 +1,20 @@
-.venv
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Editores / herramientas
+.idx/
+.idea/
+.vscode/
+.DS_Store
+
+# Credenciales — nunca commitear
+kaggle.json
+*.key
+.env
