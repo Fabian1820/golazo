@@ -20,4 +20,4 @@ flask==3.0.3
 
 # Desarrollo
 pytest==8.4.2
-ruff==0.14.5
+ruff==0.16.5
