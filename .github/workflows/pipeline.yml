@@ -1,0 +1,69 @@
+name: Pipeline diario
+
+# El ciclo completo, sin intervención:
+#   traer resultados y calendario -> reentrenar -> pronosticar y firmar -> puntuar
+#
+# Los pronósticos quedan firmados en el registro ANTES de que se jueguen los
+# partidos. Es lo que hace que el historial sea creíble: no se puede elegir a
+# posteriori qué predicciones enseñar.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"      # 06:00 UTC a diario
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[web,reports]"
+
+      - name: Verificar el registro antes de tocar nada
+        run: python -m golazo.cli verify
+
+      - name: Traer resultados y calendario
+        run: python -m golazo.cli fetch
+
+      - name: Validar los datos
+        run: python -m golazo.cli validate
+
+      - name: Reentrenar
+        run: python -m golazo.cli train
+
+      - name: Pronosticar la próxima jornada y firmarla
+        run: python -m golazo.cli forecast --horizon 10
+
+      - name: Puntuar lo ya resuelto
+        run: python -m golazo.cli score
+
+      - name: Verificar el registro después
+        run: python -m golazo.cli verify
+
+      - name: Publicar cambios
+        run: |
+          git config user.name  "golazo-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/matches.csv predictions/ reports/track_record.md
+          if git diff --staged --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "pipeline: datos, pronósticos y historial al $(date -u +%Y-%m-%d)"
+            git push
+          fi

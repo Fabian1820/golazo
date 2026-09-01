@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "golazo",
+      "runtimeExecutable": ".venv/bin/python",
+      "runtimeArgs": ["-m", "golazo.web"],
+      "port": 8080
+    }
+  ]
+}

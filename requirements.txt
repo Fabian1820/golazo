@@ -1,11 +1,23 @@
-# Dev environment
-pip
-autopep8
+# Fichero de conveniencia con versiones exactas del entorno de referencia.
+# La fuente canónica de dependencias es pyproject.toml:
+#
+#     pip install -e ".[web,reports,dev]"
+#
+# Entorno de referencia: Python 3.9
 
-# App
-flask
-pandas
-numpy
-scipy
-scikit-learn
-matplotlib
+# Núcleo
+numpy==2.0.2
+pandas==2.3.3
+scipy==1.13.1
+scikit-learn==1.6.1
+joblib==1.5.3
+
+# Informes
+matplotlib==3.9.4
+
+# Aplicación web (servicio de predicciones)
+flask==3.0.3
+
+# Desarrollo
+pytest==8.4.2
+ruff==0.14.5
