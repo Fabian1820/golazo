@@ -3,6 +3,10 @@ venv/
 .venv/
 env/
 
+# Artefactos de construcción
+build/
+dist/
+
 # Caché de Python
 __pycache__/
 *.py[cod]
@@ -26,10 +30,14 @@ kaggle.json
 *.key
 .env
 
-# Modelos entrenados: son reproducibles con `make train` y son binarios
+# Artefactos de modelos entrenados: reproducibles con `make train` y binarios
 # pesados. Lo que sí se versiona es el informe que justifica cuál se sirve
 # (reports/metrics.csv).
-models/
+#
+# La barra inicial es imprescindible: `models/` sin anclar también excluía
+# `golazo/models/`, el paquete con el código de los modelos, que quedó fuera
+# del repositorio sin que `git add -A` dijese nada.
+/models/
 
 # NOTA: predictions/ NO se ignora a propósito. Es el historial público
 # encadenado por hash y su valor entero depende de ser auditable.
