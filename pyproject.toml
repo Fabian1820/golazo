@@ -27,7 +27,7 @@ dependencies = [
 [project.optional-dependencies]
 web = ["flask>=3.0,<4"]
 reports = ["matplotlib>=3.7,<4"]
-dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.6"]
+dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff==0.16.5"]
 
 [project.scripts]
 golazo-train = "golazo.cli:train_main"
@@ -47,10 +47,20 @@ markers = ["slow: tests que reconstruyen features completas"]
 [tool.ruff]
 line-length = 110
 target-version = "py39"
+# Declarado explícitamente: por defecto ruff infiere la raíz del proyecto a
+# partir del sistema de ficheros, y esa inferencia cambiaba entre local y CI
+# (aquí seguía resolviendo un `src/` que ya no existe). El resultado era un
+# lint que pasaba en una máquina y fallaba en la otra.
+src = ["."]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
 ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+# Misma razón: sin esto, la clasificación de `golazo` como primera parte
+# depende de si el paquete está instalado, que no es igual en CI.
+known-first-party = ["golazo"]
 
 [tool.coverage.run]
 source = ["golazo"]
