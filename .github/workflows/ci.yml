@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Instalar
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[web,reports,dev]"
+
+      - name: Lint
+        run: ruff check golazo scripts tests
+
+      - name: Tests
+        run: pytest --cov=golazo --cov-report=term-missing
+
+  # El backtest es lento pero es lo que respalda todas las afirmaciones del
+  # proyecto. Se ejecuta con reajuste grueso para que quepa en CI: si algo se
+  # rompe en la cadena de features o modelos, aquí se ve.
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[reports,dev]"
+      - name: Backtest de humo
+        run: python scripts/run_backtest.py --start 2022-08-01 --refit-days 45 --out /tmp/reports
+      - uses: actions/upload-artifact@v4
+        with:
+          name: backtest
+          path: /tmp/reports

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golazo · Predicción calibrada de fútbol</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <header class="top">
+    <div class="wrap">
+      <div class="brand">
+        <h1>Golazo</h1>
+        <p>Predicción calibrada de resultados de fútbol</p>
+      </div>
+      <div class="model-badge" id="model-badge" hidden>
+        <span class="dot"></span>
+        <div>
+          <code id="model-version">—</code>
+          <small id="model-trained">—</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel" aria-labelledby="h-fixture">
+      <h2 id="h-fixture">Elegir enfrentamiento</h2>
+      <form id="fixture-form" class="grid">
+        <label>
+          <span>Liga</span>
+          <select id="league" required></select>
+        </label>
+        <label>
+          <span>Local</span>
+          <select id="home" required disabled></select>
+        </label>
+        <label>
+          <span>Visitante</span>
+          <select id="away" required disabled></select>
+        </label>
+        <label>
+          <span>Fecha <small>(opcional)</small></span>
+          <input type="date" id="kickoff">
+        </label>
+        <button type="submit" id="submit" disabled>Calcular probabilidades</button>
+      </form>
+      <p class="error" id="error" hidden></p>
+    </section>
+
+    <section id="results" hidden>
+      <div id="warnings"></div>
+
+      <section class="panel" aria-labelledby="h-1x2">
+        <h2 id="h-1x2">Resultado</h2>
+        <p class="matchup"><strong id="r-home"></strong> <span>vs</span> <strong id="r-away"></strong></p>
+        <div class="bars" id="bars"></div>
+      </section>
+
+      <div class="cols">
+        <section class="panel" aria-labelledby="h-goals">
+          <h2 id="h-goals">Goles esperados</h2>
+          <div class="xg" id="xg"></div>
+          <h3>Más / menos de</h3>
+          <table class="lines" id="ou"></table>
+        </section>
+
+        <section class="panel" aria-labelledby="h-scores">
+          <h2 id="h-scores">Marcadores más probables</h2>
+          <ol class="scores" id="scores"></ol>
+          <h3>Ambos marcan</h3>
+          <div class="btts" id="btts"></div>
+        </section>
+      </div>
+
+      <p class="provenance">
+        Todas las cifras se derivan de una única distribución conjunta de marcadores,
+        así que son coherentes entre sí. Modelo <code id="p-version">—</code>,
+        entrenado con datos hasta <span id="p-trained">—</span>.
+      </p>
+    </section>
+
+    <section class="panel note">
+      <h2>Cómo leer estas probabilidades</h2>
+      <p>
+        El modelo está <strong>calibrado</strong>: de los partidos a los que asigna un 70%,
+        acierta aproximadamente el 70%. Eso se verificó en un backtest walk-forward sobre
+        <span id="n-backtest">—</span> partidos que el modelo nunca vio al entrenar.
+      </p>
+      <p>
+        Una probabilidad alta no es una certeza, y esto <strong>no demuestra ventaja frente a
+        las casas de apuestas</strong>: esa comparación exige cuotas de cierre históricas que
+        el proyecto todavía no incorpora. Uso educativo.
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span id="foot-model">—</span>
+    <a href="https://github.com/Fabian1820/golazo">código y metodología</a>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+
+</html>

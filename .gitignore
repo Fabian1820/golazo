@@ -7,6 +7,13 @@ env/
 __pycache__/
 *.py[cod]
 *.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# Caché de respuestas de fuentes vivas: se regenera con `golazo fetch`
+.cache/
 
 # Editores / herramientas
 .idx/
@@ -18,3 +25,11 @@ __pycache__/
 kaggle.json
 *.key
 .env
+
+# Modelos entrenados: son reproducibles con `make train` y son binarios
+# pesados. Lo que sí se versiona es el informe que justifica cuál se sirve
+# (reports/metrics.csv).
+models/
+
+# NOTA: predictions/ NO se ignora a propósito. Es el historial público
+# encadenado por hash y su valor entero depende de ser auditable.
