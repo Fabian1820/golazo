@@ -16,6 +16,7 @@ from pathlib import Path
 import pandas as pd
 
 from .config import CACHE_DIR, MATCHES_STORE
+from .sources.footballdata import SEGUNDA, FootballDataSource
 from .sources.understat import LEAGUES, UnderstatSource
 from .store import upsert
 
@@ -36,8 +37,15 @@ def refresh(seasons: Sequence[int] | None = None,
             leagues: Iterable[str] = LEAGUES,
             store_path: Path = MATCHES_STORE,
             use_cache: bool = False,
-            include_fixtures: bool = True) -> dict:
-    """Descarga y funde. Devuelve un resumen de lo que cambió."""
+            include_fixtures: bool = True,
+            include_second_tier: bool = True) -> dict:
+    """Descarga y funde. Devuelve un resumen de lo que cambió.
+
+    Understat cubre las cinco primeras divisiones, con xG. football-data.co.uk
+    aporta las segundas, donde están los equipos que aparecen en los feeds de
+    liga por partidos de copa. Las primeras NO se descargan de football-data:
+    duplicarían partidos que ya vienen de Understat.
+    """
     seasons = list(seasons) if seasons else [current_season()]
     leagues = list(leagues)
 
@@ -51,9 +59,18 @@ def refresh(seasons: Sequence[int] | None = None,
     entrada = pd.concat([x for x in (jugados, calendario) if not x.empty], ignore_index=True) \
         if (not jugados.empty or not calendario.empty) else pd.DataFrame()
 
+    segunda = pd.DataFrame()
+    if include_second_tier:
+        fd = FootballDataSource(cache_dir=CACHE_DIR if use_cache else None)
+        log.info("Descargando segundas divisiones de %s...", fd.name)
+        segunda = fd.fetch(leagues=list(SEGUNDA.values()), seasons=seasons)
+        if not segunda.empty:
+            entrada = pd.concat([entrada, segunda], ignore_index=True) if not entrada.empty else segunda
+
     resumen = upsert(entrada, store_path)
     resumen.update({
         "fuente": fuente.name,
+        "descargados_segunda": int(len(segunda)),
         "temporadas": seasons,
         "ligas": leagues,
         "descargados_jugados": int(len(jugados)),
@@ -66,7 +83,8 @@ def describe(resumen: dict) -> str:
     lineas = [
         f"Fuente: {resumen['fuente']} · temporadas {resumen['temporadas']} · {len(resumen['ligas'])} ligas",
         f"  descargados : {resumen['descargados_jugados']} jugados, "
-        f"{resumen['descargados_calendario']} anunciados",
+        f"{resumen['descargados_calendario']} anunciados, "
+        f"{resumen.get('descargados_segunda', 0)} de segunda división",
         f"  almacén     : {resumen['antes']} -> {resumen['despues']} partidos "
         f"({resumen['nuevos']} nuevos, {resumen['actualizados']} actualizados)",
     ]

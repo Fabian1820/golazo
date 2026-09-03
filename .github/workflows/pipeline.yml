@@ -44,6 +44,16 @@ jobs:
       - name: Validar los datos
         run: python -m golazo.cli validate
 
+      # Que el refresco no falle no significa que haya traído algo. Esto
+      # detecta el modo de fallo silencioso: datos congelados, una liga que
+      # dejó de publicarse, o el calendario vacío.
+      - name: Detectar degradación de datos
+        run: python -m golazo.cli monitor
+
+      - name: Actualizar cuotas de cierre
+        run: python -m golazo.cli odds
+        continue-on-error: true      # la referencia externa no es crítica
+
       - name: Reentrenar
         run: python -m golazo.cli train
 
@@ -60,7 +70,7 @@ jobs:
         run: |
           git config user.name  "golazo-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/matches.csv predictions/
+          git add data/matches.csv data/odds.csv predictions/
           # `reports/track_record.md` sólo existe cuando hay predicciones ya
           # resueltas. Nombrarlo sin comprobarlo hacía que `git add` abortase
           # con código 128 y tumbase el pipeline entero, descartando los datos

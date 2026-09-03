@@ -28,8 +28,13 @@ LIMITES = {
     "away_sot": (0, 30),
     "home_ppda": (0.0, 200.0),
     "away_ppda": (0.0, 200.0),
-    "elo_h": (1000.0, 2500.0),
-    "elo_a": (1000.0, 2500.0),
+    # El suelo bajó de 1000 a 800 al incorporar las segundas divisiones. El Elo
+    # es un sistema cerrado: con dos categorías en el mismo grupo de
+    # valoraciones el rango se ensancha por abajo, y un equipo hundido en
+    # segunda cae por debajo de lo que llegaba a bajar cualquiera cuando sólo
+    # había primeras. No es un error de datos.
+    "elo_h": (800.0, 2500.0),
+    "elo_a": (800.0, 2500.0),
 }
 
 SEVERIDADES = ("error", "aviso", "info")

@@ -187,9 +187,10 @@ class PredictionService:
         # Si el modelo expone la distribución conjunta de marcadores, se derivan
         # de ella todos los mercados. Coherentes por construcción.
         mercados = None
-        fits = getattr(self.artifact.model, "fits", None)
-        if fits and league in fits:
-            mat = fits[league].scoreline_matrix(home, away)
+        fit_for = getattr(self.artifact.model, "fit_for", None)
+        fit = fit_for(league) if fit_for else None
+        if fit is not None:
+            mat = fit.scoreline_matrix(home, away)
             ok, motivo = markets.coherence_check(mat)
             if not ok:
                 raise RuntimeError(f"Distribución de marcadores inválida: {motivo}")

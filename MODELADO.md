@@ -38,9 +38,14 @@ golazo predict Liverpool Everton --kickoff 2027-03-01 --record --json
 ```
 golazo/
   config.py       Rutas. Ninguna absoluta, en ningún sitio.
-  data.py         Carga Matches.csv + ClubElo.csv. Separa columnas PRE y POST partido.
-  validation.py   Integridad de datos: nulos, duplicados, rangos, coherencia, frescura.
-  features.py     FeatureBuilder: 52 features pre-partido, causales, una sola fuente.
+  data.py         Carga el almacén. Separa columnas PRE y POST partido.
+  store.py        Almacén canónico de partidos, con fusión idempotente.
+  sources/        understat (1ª div + xG) · footballdata (2ª div + tiros + cuotas)
+  elo.py          Elo propio, incremental y estrictamente pre-partido.
+  odds.py         Cuotas de cierre del mercado, como referencia externa.
+  validation.py   Integridad de datos: nulos, duplicados, rangos, coherencia.
+  monitoring.py   Degradación silenciosa: datos congelados, ligas que desaparecen.
+  features.py     FeatureBuilder: 44 features pre-partido, causales, una sola fuente.
   metrics.py      RPS, log-loss, Brier, ECE, curvas de calibración.
   backtest.py     Walk-forward con ventana expansiva.
   markets.py      1X2, over/under, BTTS, hándicap y marcadores desde una sola matriz.
@@ -52,9 +57,10 @@ golazo/
   web.py          API HTTP (factory de Flask).
   cli.py          Línea de comandos.
 
-scripts/          run_backtest · significance · tune_gb · train · score_ledger
+scripts/          run_backtest · significance · compare_market · review_model
+                  tune_xi · tune_gb · train · score_ledger · migrate_store
 web/              Frontend estático (sin build, sin dependencias)
-tests/            102 tests
+tests/            180 tests
 ```
 
 ## Las cuatro reglas
@@ -149,11 +155,22 @@ publicará automáticamente todos los mercados derivados.
 
 ## Lo que falta
 
-**Los datos terminan el 2023-06-04.** `golazo validate` lo avisa en cada
-ejecución. Sin una fuente viva el servicio no puede predecir partidos reales, y
-el registro de predicciones —que rechaza partidos pasados por diseño— no puede
-llenarse. Es el siguiente paso y el más importante.
+**El historial de predicciones apenas ha empezado.** Es el único resultado que
+no se puede ajustar a posteriori, y necesita meses de partidos para significar
+algo. No hay atajo: sólo lo llena el calendario.
 
-**No hay cuotas de mercado.** Es el único baseline que permitiría hablar de valor
-económico. Hasta tenerlo, ninguna afirmación sobre las casas de apuestas está
-respaldada.
+**Sin alineaciones ni lesiones.** Se investigó la API pública de Fantasy Premier
+League, que sí publica disponibilidad real (`status`, `chance_of_playing_next_round`).
+No se integró por dos razones: sólo cubre la Premier, una de diez divisiones, y
+**sólo da la foto actual, sin histórico**. Sin serie temporal no se puede
+entrenar con ella, ni meterla en el backtest, ni demostrar que aporta. Añadirla
+sería un ajuste a ojo disfrazado de feature.
+
+**La fuerza entre divisiones es aproximada.** Ajustar Dixon-Coles por país
+(`GRUPOS`) arregló los casos absurdos, pero la diferencia de nivel entre primera
+y segunda se estima sobre todo desde ascensos y descensos, que el decaimiento
+temporal degrada. Un término explícito de fuerza de división lo resolvería mejor.
+
+**El ξ está validado pero no es el único parámetro a ojo.** Quedan la ventaja de
+campo del Elo (65 puntos), su factor K (20) y la penalización al ascendido (40),
+todos tomados de la convención.
