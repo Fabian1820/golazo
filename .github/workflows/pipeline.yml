@@ -60,7 +60,14 @@ jobs:
         run: |
           git config user.name  "golazo-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/matches.csv predictions/ reports/track_record.md
+          git add data/matches.csv predictions/
+          # `reports/track_record.md` sólo existe cuando hay predicciones ya
+          # resueltas. Nombrarlo sin comprobarlo hacía que `git add` abortase
+          # con código 128 y tumbase el pipeline entero, descartando los datos
+          # y los pronósticos que sí se habían generado.
+          if [ -f reports/track_record.md ]; then
+            git add reports/track_record.md
+          fi
           if git diff --staged --quiet; then
             echo "Sin cambios."
           else
