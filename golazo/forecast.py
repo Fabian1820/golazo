@@ -17,6 +17,7 @@ así que el historial sólo puede crecer hacia adelante.
 from __future__ import annotations
 
 import logging
+from datetime import timezone
 
 import pandas as pd
 
@@ -42,6 +43,16 @@ def run(horizon_days: int = 10, record: bool = True,
         ledger: PredictionLedger | None = None,
         now: pd.Timestamp | None = None) -> dict:
     """Predice el calendario pendiente y lo firma en el registro."""
+    # Un único instante para toda la ejecución: el mismo que decide qué
+    # partidos entran en el horizonte debe decidir cuáles se pueden firmar.
+    # Si el registro consultase el reloj por su cuenta, una ejecución larga
+    # podría seleccionar un partido y rechazarlo al firmarlo unos segundos
+    # después, y la función dejaría de ser determinista al testearla.
+    now = pd.Timestamp(now) if now is not None else pd.Timestamp.now()
+    emitido_en = now.to_pydatetime()
+    if emitido_en.tzinfo is None:
+        emitido_en = emitido_en.replace(tzinfo=timezone.utc)
+
     fixtures = pending_fixtures(horizon_days, now=now)
     if fixtures.empty:
         return {"fixtures": 0, "predichos": 0, "registrados": 0, "repetidos": 0,
@@ -77,7 +88,7 @@ def run(horizon_days: int = 10, record: bool = True,
         fila = pred.to_dict()
         if record:
             try:
-                fila["ledger_hash"] = ledger.append(pred).hash
+                fila["ledger_hash"] = ledger.append(pred, created_at=emitido_en).hash
                 registrados += 1
             except LedgerError as exc:
                 # Ya empezó entre la consulta y el registro, o reloj desfasado.

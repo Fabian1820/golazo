@@ -34,7 +34,7 @@ class LegacyLeakyModel(Model):
         self.last_away = {}
         self.league_mean = (1.53, 1.25)
 
-    def fit(self, train: pd.DataFrame) -> "LegacyLeakyModel":
+    def fit(self, train: pd.DataFrame) -> LegacyLeakyModel:
         X = train[_FEATS].to_numpy(dtype=float)
         self.rf_home = RandomForestRegressor(**self.kw).fit(X, train["home_goals"])
         self.rf_away = RandomForestRegressor(**self.kw).fit(X, train["away_goals"])

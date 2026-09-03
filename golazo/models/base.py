@@ -8,7 +8,7 @@ import pandas as pd
 class Model:
     name = "model"
 
-    def fit(self, train: pd.DataFrame) -> "Model":
+    def fit(self, train: pd.DataFrame) -> Model:
         raise NotImplementedError
 
     def predict_proba(self, test: pd.DataFrame) -> np.ndarray:
