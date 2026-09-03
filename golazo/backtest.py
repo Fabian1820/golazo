@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import sys
 import time
+from collections.abc import Sequence
 from typing import Callable
 
 import numpy as np
@@ -26,9 +27,14 @@ def walk_forward(
     start: str,
     refit_days: int = 7,
     verbose: bool = True,
+    eval_leagues: Sequence[str] | None = None,
 ) -> pd.DataFrame:
     """Devuelve un DataFrame con una fila por partido predicho y las
     probabilidades de cada modelo (`<modelo>_H/_D/_A`).
+
+    `eval_leagues` restringe qué partidos se PREDICEN, nunca con cuáles se
+    entrena. Sirve para que la evaluación coincida con lo que el producto
+    pronostica: las segundas divisiones aportan valoraciones pero no se sirven.
     """
     df = df.sort_values("date", kind="mergesort").reset_index(drop=True)
     start_ts = pd.Timestamp(start)
@@ -43,6 +49,8 @@ def walk_forward(
     for b in range(n_blocks):
         lo, hi = edges[b], edges[b + 1]
         test = df[(df["date"] >= lo) & (df["date"] < hi)]
+        if eval_leagues is not None:
+            test = test[test["league"].isin(eval_leagues)]
         if test.empty:
             continue
         train = df[df["date"] < lo]

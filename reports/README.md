@@ -27,20 +27,46 @@ El `train_test_split` aleatorio del modelo original entrenaba con partidos de
 2023 para predecir 2019. Aquí eso es imposible por construcción, y hay un test
 (`tests/test_backtest.py`) que falla si el entrenamiento invade el futuro.
 
+### Por qué se entrena con diez divisiones y se evalúa sobre cinco
+
+Las segundas divisiones se incorporaron para que los rivales de copa tengan
+valoración real: sin ellas, Hull salía al 75% frente al Aston Villa. Pero **no
+se pronostican**: cero de los 1.653 partidos anunciados en el calendario son de
+segunda. Evaluar sobre ellas mide algo que el producto nunca sirve.
+
+Esto se descubrió, honestamente, *después* de ver que la evaluación sin
+restringir volcaba la elección de modelo. Por eso van las dos cifras:
+
+| | RPS dixon_coles | vs. mejor modelo |
+|---|---|---|
+| Sólo 1ª división (12.558) — **lo que se sirve** | 0.2025 | +0.0010, IC cruza el cero |
+| Todas las divisiones (18.812) | 0.2102 | +0.0025, IC excluye el cero |
+
+En segunda división Dixon-Coles **no supera a la tasa base** (0.2258 frente a
+0.2257) y su calibración se degrada (ECE 0.0322 frente a 0.0084 en primera).
+Es una debilidad real del modelo, no un detalle de contabilidad: si algún día se
+pronostican segundas divisiones, Dixon-Coles no sirve para ellas.
+
+La separación está fijada por test: `eval_leagues` restringe qué se predice y
+nunca con qué se entrena.
+
 ---
 
 ## Resultados
 
 Ordenado por RPS. **Menor es mejor** en RPS, log-loss, Brier y ECE.
 
-| modelo | RPS | log-loss | Brier | ECE | acierto | skill RPS |
-|---|---|---|---|---|---|---|
-| **gradient_boosting** | **0.2016** | 0.9919 | **0.5908** | 0.0095 | 52.3% | **+12.7%** |
-| **elo_logistico** | 0.2019 | **0.9916** | 0.5909 | 0.0113 | **52.4%** | +12.6% |
-| **dixon_coles** | 0.2026 | 0.9959 | 0.5921 | **0.0085** | 52.2% | +12.3% |
-| tasa_base | 0.2309 | 1.0747 | 0.6505 | 0.0020 | 43.1% | 0.0% |
-| uniforme | 0.2357 | 1.0986 | 0.6667 | 0.0000 | 43.1% | −2.1% |
-| **original_fugado** | **0.2558** | 1.1932 | 0.7059 | **0.1041** | 42.2% | **−10.8%** |
+Sobre los 12.558 partidos de primera división, que son los que se sirven.
+
+| modelo | RPS | ECE | acierto | vs. tasa base | vs. mercado |
+|---|---|---|---|---|---|
+| **gradient_boosting** | **0.2015** | 0.0096 | **52.4%** | +12.7% | +3.1% peor |
+| **elo_logistico** | 0.2022 | 0.0087 | 52.4% | +12.4% | +3.2% peor |
+| **dixon_coles** (servido) | 0.2025 | **0.0084** | 52.2% | +12.3% | +3.6% peor |
+| mercado (cierre Bet365) | 0.1956 | 0.0068 | 54.0% | +15.3% | — |
+| tasa_base | 0.2309 | 0.0031 | 43.1% | 0.0% | +18.0% peor |
+| uniforme | 0.2357 | 0.0000 | 43.1% | −2.1% | +20.5% peor |
+| **original_fugado** | **0.2558** | **0.1041** | 42.2% | **−10.8%** | +30.8% peor |
 
 *skill RPS = mejora porcentual sobre `tasa_base` (la frecuencia histórica de
 local/empate/visitante). Un valor negativo significa que el modelo es peor que
