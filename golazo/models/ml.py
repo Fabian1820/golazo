@@ -41,7 +41,7 @@ class GradientBoostingModel(Model):
                 X[c] = X[c].astype("category")
         return X
 
-    def fit(self, train: pd.DataFrame) -> "GradientBoostingModel":
+    def fit(self, train: pd.DataFrame) -> GradientBoostingModel:
         if self.feature_cols is None:
             from ..features import feature_columns
             self.feature_cols = feature_columns(train)

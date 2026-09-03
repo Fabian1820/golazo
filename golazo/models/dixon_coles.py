@@ -45,7 +45,7 @@ class _LeagueFit:
         self.rho = 0.0
         self.converged = False
 
-    def fit(self, df: pd.DataFrame, ref_date: pd.Timestamp) -> "_LeagueFit":
+    def fit(self, df: pd.DataFrame, ref_date: pd.Timestamp) -> _LeagueFit:
         self.teams = sorted(set(df["home"]) | set(df["away"]))
         n = len(self.teams)
         idx = {t: i for i, t in enumerate(self.teams)}
@@ -117,7 +117,7 @@ class DixonColes(Model):
         self.fits: dict = {}
         self.fallback = (0.4344, 0.2516, 0.3140)
 
-    def fit(self, train: pd.DataFrame) -> "DixonColes":
+    def fit(self, train: pd.DataFrame) -> DixonColes:
         ref = train["date"].max()
         self.fits = {}
         for league, sub in train.groupby("league"):

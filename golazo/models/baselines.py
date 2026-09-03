@@ -14,7 +14,7 @@ class UniformModel(Model):
 
     name = "uniforme"
 
-    def fit(self, train: pd.DataFrame) -> "UniformModel":
+    def fit(self, train: pd.DataFrame) -> UniformModel:
         return self
 
     def predict_proba(self, test: pd.DataFrame) -> np.ndarray:
@@ -29,7 +29,7 @@ class BaseRateModel(Model):
     def __init__(self):
         self.rates = np.array([1 / 3, 1 / 3, 1 / 3])
 
-    def fit(self, train: pd.DataFrame) -> "BaseRateModel":
+    def fit(self, train: pd.DataFrame) -> BaseRateModel:
         counts = train["result"].value_counts()
         self.rates = np.array([counts.get(o, 0) for o in OUTCOMES], dtype=float)
         self.rates /= self.rates.sum()
@@ -51,7 +51,7 @@ class EloLogisticModel(Model):
         self.clf = None
         self.classes_ = np.array(OUTCOMES)
 
-    def fit(self, train: pd.DataFrame) -> "EloLogisticModel":
+    def fit(self, train: pd.DataFrame) -> EloLogisticModel:
         X = train[["elo_diff"]].to_numpy(dtype=float)
         self.clf = LogisticRegression(max_iter=1000, C=1.0).fit(X, train["result"])
         return self
