@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 
 from golazo.backtest import evaluate, walk_forward
-from golazo.config import OUTCOMES, REPORTS_DIR
+from golazo.config import OUTCOMES, REPORTS_DIR, SERVED_LEAGUES
 from golazo.data import load_matches
 from golazo.features import build_features, feature_columns
 from golazo.metrics import calibration_table
@@ -63,6 +63,8 @@ def main() -> None:
     ap.add_argument("--start", default="2019-08-01", help="primera fecha predicha (2018 queda como burn-in)")
     ap.add_argument("--refit-days", type=int, default=7)
     ap.add_argument("--out", default=str(REPORTS_DIR))
+    ap.add_argument("--all-leagues", action="store_true",
+                    help="evaluar también sobre divisiones que no se pronostican")
     args = ap.parse_args()
 
     out = Path(args.out)
@@ -83,7 +85,12 @@ def main() -> None:
     }
 
     print(f"\nBacktest walk-forward desde {args.start}, reajuste cada {args.refit_days} días:")
-    preds = walk_forward(df, factories, start=args.start, refit_days=args.refit_days)
+    servidas = None if args.all_leagues else list(SERVED_LEAGUES)
+    if servidas:
+        print(f"  evaluando sobre las ligas que se sirven: {', '.join(servidas)}")
+        print("  (el entrenamiento usa TODAS las divisiones)")
+    preds = walk_forward(df, factories, start=args.start, refit_days=args.refit_days,
+                         eval_leagues=servidas)
 
     table = evaluate(preds, list(factories), reference="tasa_base")
     preds.to_csv(out / "backtest_predictions.csv", index=False)

@@ -92,7 +92,6 @@ ALIAS = {
     "Nott'm Forest": "Nottingham Forest",
     "Wolves": "Wolverhampton Wanderers",
     "West Brom": "West Bromwich Albion",
-    "Sheffield United": "Sheffield United",
     # España
     "Ath Bilbao": "Athletic Club",
     "Ath Madrid": "Atletico Madrid",
@@ -128,7 +127,6 @@ ALIAS = {
     "Milan": "AC Milan",
     "Parma": "Parma Calcio 1913",
     "Spal": "SPAL 2013",
-    "Verona": "Verona",
     # Francia
     "Paris SG": "Paris Saint Germain",
     "St Etienne": "Saint-Etienne",

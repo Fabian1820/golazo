@@ -84,3 +84,84 @@ def test_evaluate_calcula_skill_cero_contra_si_mismo(datos):
 def test_falla_si_no_hay_partidos_en_el_horizonte(datos):
     with pytest.raises(ValueError):
         walk_forward(datos, {"espia": _Espia}, start="2030-01-01", refit_days=14, verbose=False)
+
+
+# --- separación entre lo que se entrena y lo que se evalúa -------------------
+
+
+def test_eval_leagues_restringe_la_prediccion_no_el_entrenamiento():
+    """Las segundas divisiones aportan valoraciones pero no se pronostican.
+
+    Restringir la evaluación a las ligas servidas es legítimo mientras el
+    entrenamiento siga usando todo. Si se filtrase también el entrenamiento,
+    se perdería el motivo por el que se incorporaron.
+    """
+    import numpy as np
+    import pandas as pd
+
+    from golazo.backtest import walk_forward
+    from golazo.models.base import Model
+
+    vistos = {}
+
+    class Espia(Model):
+        name = "espia"
+
+        def fit(self, train):
+            vistos["ligas_entrenamiento"] = set(train["league"])
+            vistos["n_entrenamiento"] = len(train)
+            return self
+
+        def predict_proba(self, test):
+            vistos.setdefault("ligas_prediccion", set()).update(test["league"])
+            return np.tile([0.4, 0.3, 0.3], (len(test), 1))
+
+    n = 400
+    df = pd.DataFrame({
+        "match_id": [f"m{i}" for i in range(n)],
+        "date": pd.date_range("2024-01-01", periods=n, freq="12h"),
+        "season": 2023,
+        "league": ["EPL" if i % 2 else "Championship" for i in range(n)],
+        "home": [f"H{i % 10}" for i in range(n)],
+        "away": [f"A{i % 10}" for i in range(n)],
+        "home_goals": 2, "away_goals": 1,
+        "result": "H",
+    })
+
+    preds = walk_forward(df, {"espia": Espia}, start="2024-05-01",
+                         refit_days=7, verbose=False, eval_leagues=["EPL"])
+
+    assert vistos["ligas_prediccion"] == {"EPL"}, "se evaluó fuera de las ligas servidas"
+    assert vistos["ligas_entrenamiento"] == {"EPL", "Championship"}, \
+        "el entrenamiento se restringió: se pierde el motivo de incorporar la 2ª división"
+    assert set(preds["league"]) == {"EPL"}
+
+
+def test_sin_eval_leagues_se_evalua_todo():
+    import numpy as np
+    import pandas as pd
+
+    from golazo.backtest import walk_forward
+    from golazo.models.base import Model
+
+    class Fijo(Model):
+        name = "fijo"
+
+        def fit(self, train):
+            return self
+
+        def predict_proba(self, test):
+            return np.tile([0.4, 0.3, 0.3], (len(test), 1))
+
+    n = 400
+    df = pd.DataFrame({
+        "match_id": [f"m{i}" for i in range(n)],
+        "date": pd.date_range("2024-01-01", periods=n, freq="12h"),
+        "season": 2023,
+        "league": ["EPL" if i % 2 else "Championship" for i in range(n)],
+        "home": [f"H{i % 10}" for i in range(n)],
+        "away": [f"A{i % 10}" for i in range(n)],
+        "home_goals": 2, "away_goals": 1, "result": "H",
+    })
+    preds = walk_forward(df, {"fijo": Fijo}, start="2024-05-01", refit_days=7, verbose=False)
+    assert set(preds["league"]) == {"EPL", "Championship"}

@@ -24,6 +24,15 @@ LEGACY_CLUBELO_CSV = LEGACY_DATA_DIR / "ClubElo.csv"
 # Caché de respuestas de fuentes vivas.
 CACHE_DIR = ROOT / ".cache" / "sources"
 
+# Ligas que el producto realmente pronostica. Las segundas divisiones se
+# incorporan al ENTRENAMIENTO —dan valoración real a los rivales de copa— pero
+# no aparecen en el calendario: cero de 1.653 partidos anunciados. Evaluar
+# sobre ellas mide algo que nunca se sirve.
+#
+# El backtest entrena con todo y evalúa aquí. Los informes publican también la
+# cifra sin restringir, para que la diferencia quede a la vista.
+SERVED_LEAGUES = ("EPL", "La liga", "Bundesliga", "Serie A", "Ligue 1")
+
 # Resultados 1X2, en orden fijo. Este orden es un contrato: las métricas
 # ordinales (RPS) dependen de que H < D < A.
 OUTCOMES = ("H", "D", "A")
