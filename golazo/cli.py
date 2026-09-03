@@ -107,6 +107,32 @@ def _cmd_fetch(args) -> int:
     return 0
 
 
+def _cmd_monitor(args) -> int:
+    """Comprueba que el refresco sigue trayendo datos, no sólo que no falló."""
+    from .monitoring import check_freshness
+    from .store import load_store
+    from .validation import has_errors, report
+
+    hallazgos = check_freshness(load_store())
+    print(report(hallazgos))
+    return 1 if has_errors(hallazgos) else 0
+
+
+def _cmd_odds(args) -> int:
+    import logging
+
+    from .odds import refresh_odds
+    from .refresh import current_season
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    temporadas = args.seasons or [current_season()]
+    r = refresh_odds(seasons=temporadas, use_cache=args.cache)
+    print(f"cuotas: {r['antes']} -> {r['despues']} ({r['nuevas']} nuevas)")
+    if r.get("fuentes"):
+        print("  fuentes:", r["fuentes"])
+    return 0
+
+
 def _cmd_forecast(args) -> int:
     from .forecast import describe, run
 
@@ -168,6 +194,14 @@ def build_parser() -> argparse.ArgumentParser:
     f.add_argument("--cache", action="store_true", help="reutilizar respuestas cacheadas")
     f.add_argument("--no-fixtures", action="store_true", help="no traer el calendario")
     f.set_defaults(func=_cmd_fetch)
+
+    mo = sub.add_parser("monitor", help="detecta degradación silenciosa de los datos")
+    mo.set_defaults(func=_cmd_monitor)
+
+    od = sub.add_parser("odds", help="descarga cuotas de cierre del mercado")
+    od.add_argument("--seasons", type=int, nargs="+")
+    od.add_argument("--cache", action="store_true")
+    od.set_defaults(func=_cmd_odds)
 
     fc = sub.add_parser("forecast", help="predice la próxima jornada y la firma")
     fc.add_argument("--horizon", type=int, default=10, help="días hacia adelante (por defecto 10)")

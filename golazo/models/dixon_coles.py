@@ -22,6 +22,31 @@ from .base import Model
 MAX_GOALS = 10
 TAU_FLOOR = 1e-10
 
+# Primera y segunda división de un país se ajustan JUNTAS, en un único grupo de
+# valoraciones.
+#
+# Ajustar por liga dejaba a los equipos de segunda fuera del grupo de primera, y
+# `rates()` les asignaba el promedio de la categoría superior. En el primer
+# pronóstico real eso daba Gladbach 18% en casa contra el Elversberg, un equipo
+# de 2. Bundesliga valorado como un Bundesliga medio.
+#
+# Compartir grupo es posible porque los ascensos y descensos enlazan ambas
+# categorías: en ocho temporadas casi todos los equipos han jugado en las dos, y
+# esos partidos comunes hacen comparables las valoraciones. Los partidos de copa
+# entre categorías añaden más enlaces.
+GRUPOS = {
+    "EPL": "Inglaterra", "Championship": "Inglaterra",
+    "La liga": "España", "La liga 2": "España",
+    "Bundesliga": "Alemania", "Bundesliga 2": "Alemania",
+    "Serie A": "Italia", "Serie B": "Italia",
+    "Ligue 1": "Francia", "Ligue 2": "Francia",
+}
+
+
+def grupo_de(league: str) -> str:
+    """Grupo de ajuste de una liga. Una liga desconocida se ajusta sola."""
+    return GRUPOS.get(league, league)
+
 
 def _tau(x, y, lam, mu, rho):
     """Corrección de dependencia en marcadores bajos."""
@@ -107,7 +132,7 @@ class _LeagueFit:
 
 
 class DixonColes(Model):
-    """Ajusta un modelo independiente por liga (los equipos no se cruzan)."""
+    """Un ajuste por grupo de ligas (ver `GRUPOS`)."""
 
     name = "dixon_coles"
 
@@ -120,14 +145,19 @@ class DixonColes(Model):
     def fit(self, train: pd.DataFrame) -> DixonColes:
         ref = train["date"].max()
         self.fits = {}
-        for league, sub in train.groupby("league"):
+        grupos = train["league"].map(grupo_de)
+        for grupo, sub in train.groupby(grupos):
             if len(sub) >= 50:
-                self.fits[league] = _LeagueFit(self.xi).fit(sub, ref)
+                self.fits[grupo] = _LeagueFit(self.xi).fit(sub, ref)
         return self
+
+    def fit_for(self, league: str) -> _LeagueFit | None:
+        """Ajuste que corresponde a una liga, a través de su grupo."""
+        return self.fits.get(grupo_de(league))
 
     def predict_proba(self, test: pd.DataFrame) -> np.ndarray:
         out = np.empty((len(test), 3))
         for k, r in enumerate(test.itertuples(index=False)):
-            fit = self.fits.get(r.league)
+            fit = self.fit_for(r.league)
             out[k] = fit.outcome_probs(r.home, r.away) if fit else self.fallback
         return out

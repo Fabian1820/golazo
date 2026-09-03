@@ -1,0 +1,45 @@
+name: Revisión del modelo
+
+# El backtest se ejecutó una vez y la decisión de qué modelo servir quedó
+# congelada. Pero la respuesta cambia con los datos: con 7.203 partidos el
+# gradient boosting ganaba a Dixon-Coles de forma significativa y con 12.553
+# dejó de hacerlo. Esto lo vuelve a comprobar cada semana.
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"      # lunes a las 04:00 UTC
+  workflow_dispatch:
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[reports,dev]"
+
+      - name: Backtest completo
+        run: python scripts/run_backtest.py --start 2019-08-01 --refit-days 14
+
+      - name: Significancia
+        run: python scripts/significance.py
+
+      - name: Contra el mercado
+        run: python scripts/compare_market.py
+        continue-on-error: true
+
+      # Sale con codigo 1 si el modelo servido es significativamente peor que
+      # el mejor. Empatar no basta para cambiarlo.
+      - name: Auditar el modelo servido
+        run: python scripts/review_model.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: revision-modelo
+          path: reports/

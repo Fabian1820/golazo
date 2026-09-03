@@ -13,6 +13,10 @@ PREDICTIONS_DB = ROOT / "predictions" / "predictions.jsonl"
 # Almacén canónico: todos los partidos conocidos, de cualquier fuente.
 MATCHES_STORE = DATA_DIR / "matches.csv"
 
+# Cuotas de cierre del mercado. No son un hecho del partido sino la predicción
+# de un tercero, así que viven aparte del almacén de partidos.
+ODDS_STORE = DATA_DIR / "odds.csv"
+
 # Volcados originales de Kaggle. Sólo los usa scripts/migrate_store.py, una vez.
 LEGACY_MATCHES_CSV = LEGACY_DATA_DIR / "Matches.csv"
 LEGACY_CLUBELO_CSV = LEGACY_DATA_DIR / "ClubElo.csv"
