@@ -1,9 +1,9 @@
 # Historial de predicciones
 
 Predicciones fijadas **antes** de cada partido y puntuadas después.
-Registro verificado: cadena íntegra: 119 predicciones verificadas.
+Registro verificado: cadena íntegra: 212 predicciones verificadas.
 
-- Registradas: **119**  ·  resueltas: **2**  ·  pendientes: 117
+- Registradas: **212**  ·  resueltas: **2**  ·  pendientes: 210
 - Periodo: 2026-09-03 a 2026-09-03
 - Versiones de modelo: 20260831-701f5a86
 
