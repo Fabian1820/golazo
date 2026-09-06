@@ -1,18 +1,18 @@
 # Historial de predicciones
 
 Predicciones fijadas **antes** de cada partido y puntuadas después.
-Registro verificado: cadena íntegra: 301 predicciones verificadas.
+Registro verificado: cadena íntegra: 368 predicciones verificadas.
 
-- Registradas: **301**  ·  resueltas: **20**  ·  pendientes: 281
-- Periodo: 2026-09-03 a 2026-09-04
-- Versiones de modelo: 20260831-701f5a86, 20260903-5acc9120, 20260903-c31024c2
+- Registradas: **368**  ·  resueltas: **96**  ·  pendientes: 272
+- Periodo: 2026-09-03 a 2026-09-05
+- Versiones de modelo: 20260831-701f5a86, 20260903-5acc9120, 20260903-c31024c2, 20260904-d1b6d5ed
 
 | métrica | modelo | tasa base | mejora |
 |---|---|---|---|
-| RPS | 0.2172 | 0.2662 | +18.4% |
-| log-loss | 0.8850 | 1.0234 | +13.5% |
-| Brier | 0.5096 | 0.6205 | +17.9% |
-| ECE | 0.0733 | — | — |
-| acierto | 65.0% | 45.0% | — |
+| RPS | 0.2449 | 0.2398 | -2.1% |
+| log-loss | 1.1397 | 1.1045 | -3.2% |
+| Brier | 0.6921 | 0.6723 | -2.9% |
+| ECE | 0.1233 | — | — |
+| acierto | 40.6% | 34.4% | — |
 
-> Con 20 predicciones resueltas estas cifras son orientativas. Hacen falta varios cientos para que sean estables.
+> Con 96 predicciones resueltas estas cifras son orientativas. Hacen falta varios cientos para que sean estables.
