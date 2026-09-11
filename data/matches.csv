@@ -20736,6 +20736,15 @@ fd:SP2:20260907:Sabadell:Cordoba,2026-09-07 19:30:00,2026,La liga 2,Sabadell,Cor
 fd:I2:20260907:Palermo:Sampdoria,2026-09-07 19:30:00,2026,Serie B,Palermo,Sampdoria,3.0,1.0,,,,,,,14.0,14.0,6.0,5.0
 understat:30810,2026-09-07 19:30:00,2026,La liga,Elche,Real Sociedad,2.0,3.0,2.87045,0.876198,9.0,8.0,11.7,15.0,,,,
 fd:F2:20260907:Nantes:Nancy,2026-09-07 19:45:00,2026,Ligue 2,Nantes,Nancy,1.0,0.0,,,,,,,15.0,5.0,2.0,0.0
+fd:E1:20260908:Blackburn:Sheffield_United,2026-09-08 19:45:00,2026,Championship,Blackburn,Sheffield United,1.0,2.0,,,,,,,19.0,7.0,5.0,4.0
+fd:E1:20260908:Cardiff:Stoke,2026-09-08 19:45:00,2026,Championship,Cardiff,Stoke,1.0,1.0,,,,,,,26.0,12.0,7.0,4.0
+fd:E1:20260908:Southampton:Swansea,2026-09-08 19:45:00,2026,Championship,Southampton,Swansea,3.0,1.0,,,,,,,16.0,10.0,4.0,2.0
+fd:E1:20260908:Watford:Preston,2026-09-08 19:45:00,2026,Championship,Watford,Preston,2.0,1.0,,,,,,,15.0,18.0,5.0,6.0
+fd:E1:20260908:Wrexham:Burnley,2026-09-08 19:45:00,2026,Championship,Wrexham,Burnley,1.0,1.0,,,,,,,15.0,19.0,5.0,4.0
+fd:E1:20260908:Bolton:West_Ham,2026-09-08 20:00:00,2026,Championship,Bolton,West Ham,2.0,3.0,,,,,,,13.0,11.0,6.0,7.0
+fd:E1:20260909:Derby:West_Bromwich_Albion,2026-09-09 19:45:00,2026,Championship,Derby,West Bromwich Albion,0.0,1.0,,,,,,,13.0,4.0,3.0,1.0
+fd:E1:20260909:Norwich:Birmingham,2026-09-09 19:45:00,2026,Championship,Norwich,Birmingham,2.0,1.0,,,,,,,15.0,14.0,6.0,3.0
+fd:E1:20260909:Charlton:QPR,2026-09-09 20:00:00,2026,Championship,Charlton,QPR,0.0,0.0,,,,,,,9.0,15.0,0.0,2.0
 understat:32263,2026-09-11 18:30:00,2026,Bundesliga,Union Berlin,Schalke 04,,,,,,,,,,,,
 understat:31590,2026-09-11 18:45:00,2026,Serie A,Venezia,Fiorentina,,,,,,,,,,,,
 understat:31967,2026-09-11 18:45:00,2026,Ligue 1,Rennes,Marseille,,,,,,,,,,,,
