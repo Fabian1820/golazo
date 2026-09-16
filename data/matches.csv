@@ -20844,9 +20844,9 @@ understat:31219,2026-09-14 19:00:00,2026,EPL,Leeds,Newcastle United,4.0,1.0,2.29
 understat:30819,2026-09-14 19:00:00,2026,La liga,Villarreal,Real Betis,1.0,2.0,1.67293,4.07311,6.0,10.0,10.045454545454545,19.294117647058822,,,,
 fd:SP2:20260914:Celta_B:Eibar,2026-09-14 19:30:00,2026,La liga 2,Celta B,Eibar,0.0,4.0,,,,,,,24.0,12.0,9.0,7.0
 fd:F2:20260914:Red_Star:Metz,2026-09-14 19:45:00,2026,Ligue 2,Red Star,Metz,1.0,0.0,,,,,,,19.0,11.0,7.0,1.0
-understat:30829,2026-09-15 17:00:00,2026,La liga,Rayo Vallecano,Espanyol,,,,,,,,,,,,
-understat:30821,2026-09-15 18:00:00,2026,La liga,Alaves,Valencia,,,,,,,,,,,,
-understat:30825,2026-09-15 19:30:00,2026,La liga,Elche,Real Madrid,,,,,,,,,,,,
+understat:30829,2026-09-15 17:00:00,2026,La liga,Rayo Vallecano,Espanyol,2.0,1.0,1.8328,1.1573,4.0,9.0,12.6875,12.454545454545455,,,,
+understat:30821,2026-09-15 18:00:00,2026,La liga,Alaves,Valencia,0.0,1.0,1.30957,0.83949,5.0,7.0,13.04,10.647058823529411,,,,
+understat:30825,2026-09-15 19:30:00,2026,La liga,Elche,Real Madrid,2.0,3.0,1.05222,3.46121,11.0,20.0,9.76,21.0,,,,
 understat:30822,2026-09-16 17:00:00,2026,La liga,Atletico Madrid,Osasuna,,,,,,,,,,,,
 understat:30824,2026-09-16 17:00:00,2026,La liga,Deportivo La Coruna,Sevilla,,,,,,,,,,,,
 understat:30826,2026-09-16 19:30:00,2026,La liga,Barcelona,Racing Santander,,,,,,,,,,,,
