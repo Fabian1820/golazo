@@ -20854,54 +20854,105 @@ understat:30824,2026-09-16 17:00:00,2026,La liga,Deportivo La Coruna,Sevilla,0.0
 understat:30826,2026-09-16 19:30:00,2026,La liga,Barcelona,Racing Santander,7.0,2.0,7.47528,1.38402,19.0,2.0,8.041666666666666,28.0,,,,
 understat:30823,2026-09-17 17:00:00,2026,La liga,Real Betis,Getafe,1.0,0.0,2.60912,0.327032,13.0,3.0,4.380952380952381,9.54054054054054,,,,
 understat:30828,2026-09-17 19:30:00,2026,La liga,Malaga,Villarreal,1.0,3.0,0.361392,4.2474,1.0,19.0,23.928571428571427,9.416666666666666,,,,
+fd:D2:20260918:Greuther_Fuerth:Magdeburg,2026-09-18 17:30:00,2026,Bundesliga 2,Greuther Fuerth,Magdeburg,1.0,1.0,,,,,,,8.0,14.0,4.0,6.0
+fd:D2:20260918:Wolfsburg:Darmstadt,2026-09-18 17:30:00,2026,Bundesliga 2,Wolfsburg,Darmstadt,5.0,1.0,,,,,,,19.0,12.0,6.0,3.0
 understat:32271,2026-09-18 18:30:00,2026,Bundesliga,Bayern Munich,Union Berlin,7.0,0.0,4.1308,0.471553,20.0,1.0,6.32258064516129,27.3,,,,
 understat:31600,2026-09-18 18:45:00,2026,Serie A,Monza,Sassuolo,2.0,1.0,1.6104,2.27094,6.0,8.0,16.952380952380953,8.7,,,,
 understat:31976,2026-09-18 18:45:00,2026,Ligue 1,Monaco,Lens,2.0,1.0,1.53599,1.46144,5.0,4.0,10.838709677419354,18.05,,,,
+fd:F2:20260918:Annecy:Dijon,2026-09-18 19:00:00,2026,Ligue 2,Annecy,Dijon,1.0,2.0,,,,,,,12.0,11.0,2.0,3.0
+fd:F2:20260918:Grenoble:Clermont_Foot,2026-09-18 19:00:00,2026,Ligue 2,Grenoble,Clermont Foot,1.0,1.0,,,,,,,12.0,11.0,2.0,5.0
+fd:F2:20260918:Laval:Sochaux,2026-09-18 19:00:00,2026,Ligue 2,Laval,Sochaux,1.0,1.0,,,,,,,21.0,10.0,6.0,3.0
+fd:F2:20260918:Pau_FC:Dunkerque,2026-09-18 19:00:00,2026,Ligue 2,Pau FC,Dunkerque,2.0,0.0,,,,,,,22.0,7.0,10.0,3.0
+fd:F2:20260918:Reims:Montpellier,2026-09-18 19:00:00,2026,Ligue 2,Reims,Montpellier,1.0,1.0,,,,,,,21.0,10.0,6.0,4.0
+fd:F2:20260918:Rodez:Nancy,2026-09-18 19:00:00,2026,Ligue 2,Rodez,Nancy,3.0,4.0,,,,,,,10.0,24.0,5.0,8.0
 understat:31220,2026-09-18 19:00:00,2026,EPL,Brentford,Chelsea,3.0,0.0,2.47935,0.885111,5.0,9.0,17.428571428571427,6.925925925925926,,,,
 understat:30834,2026-09-18 19:00:00,2026,La liga,Espanyol,Elche,1.0,3.0,1.07744,1.25113,12.0,3.0,4.206896551724138,21.818181818181817,,,,
+fd:SP2:20260918:Albacete:Cordoba,2026-09-18 19:30:00,2026,La liga 2,Albacete,Cordoba,1.0,2.0,,,,,,,13.0,13.0,3.0,5.0
+fd:I2:20260918:Juve_Stabia:Cesena,2026-09-18 19:30:00,2026,Serie B,Juve Stabia,Cesena,1.0,1.0,,,,,,,15.0,18.0,3.0,3.0
+fd:E1:20260918:Bristol_City:Watford,2026-09-18 20:00:00,2026,Championship,Bristol City,Watford,1.0,0.0,,,,,,,17.0,10.0,7.0,2.0
 understat:31221,2026-09-19 11:30:00,2026,EPL,Tottenham,Aston Villa,2.0,3.0,1.72177,1.7092,12.0,4.0,5.783783783783784,15.333333333333334,,,,
+fd:D2:20260919:Holstein_Kiel:Osnabruck,2026-09-19 12:00:00,2026,Bundesliga 2,Holstein Kiel,Osnabruck,1.0,1.0,,,,,,,18.0,14.0,4.0,3.0
+fd:D2:20260919:Kaiserslautern:Braunschweig,2026-09-19 12:00:00,2026,Bundesliga 2,Kaiserslautern,Braunschweig,1.0,0.0,,,,,,,23.0,15.0,10.0,4.0
+fd:D2:20260919:Karlsruhe:Nuernberg,2026-09-19 12:00:00,2026,Bundesliga 2,Karlsruhe,Nuernberg,0.0,1.0,,,,,,,9.0,10.0,3.0,3.0
 understat:30836,2026-09-19 12:00:00,2026,La liga,Osasuna,Rayo Vallecano,1.0,1.0,0.926414,1.35649,6.0,9.0,11.6,6.333333333333333,,,,
+fd:E1:20260919:Cardiff:Charlton,2026-09-19 12:30:00,2026,Championship,Cardiff,Charlton,3.0,1.0,,,,,,,27.0,6.0,8.0,3.0
+fd:E1:20260919:Millwall:West_Ham,2026-09-19 12:30:00,2026,Championship,Millwall,West Ham,2.0,2.0,,,,,,,19.0,15.0,7.0,6.0
+fd:E1:20260919:Stoke:Sheffield_United,2026-09-19 12:30:00,2026,Championship,Stoke,Sheffield United,2.0,1.0,,,,,,,12.0,8.0,5.0,3.0
+fd:SP2:20260919:Sociedad_B:Mallorca,2026-09-19 13:00:00,2026,La liga 2,Sociedad B,Mallorca,0.0,1.0,,,,,,,10.0,9.0,2.0,1.0
+fd:F2:20260919:Boulogne:Nantes,2026-09-19 13:00:00,2026,Ligue 2,Boulogne,Nantes,1.0,2.0,,,,,,,10.0,11.0,2.0,2.0
+fd:F2:20260919:Guingamp:Red_Star,2026-09-19 13:00:00,2026,Ligue 2,Guingamp,Red Star,1.0,3.0,,,,,,,11.0,24.0,3.0,6.0
 understat:31601,2026-09-19 13:00:00,2026,Serie A,Udinese,Cagliari,0.0,1.0,1.8486,0.636351,13.0,1.0,10.166666666666666,31.1,,,,
 understat:31602,2026-09-19 13:00:00,2026,Serie A,Bologna,Torino,1.0,1.0,0.699269,0.958071,4.0,6.0,15.61111111111111,7.260869565217392,,,,
 understat:32272,2026-09-19 13:30:00,2026,Bundesliga,Borussia M.Gladbach,Mainz 05,3.0,4.0,3.0902,3.46968,8.0,4.0,13.61111111111111,12.952380952380953,,,,
 understat:32273,2026-09-19 13:30:00,2026,Bundesliga,Eintracht Frankfurt,Freiburg,2.0,2.0,2.08323,2.93158,7.0,4.0,14.3,10.0,,,,
 understat:32274,2026-09-19 13:30:00,2026,Bundesliga,Hamburger SV,FC Cologne,2.0,1.0,2.07655,2.15949,2.0,6.0,24.857142857142858,8.176470588235293,,,,
 understat:32275,2026-09-19 13:30:00,2026,Bundesliga,Werder Bremen,Augsburg,3.0,2.0,2.30122,0.742238,15.0,4.0,10.526315789473685,28.571428571428573,,,,
+fd:I2:20260919:Carrarese:Benevento,2026-09-19 14:00:00,2026,Serie B,Carrarese,Benevento,0.0,1.0,,,,,,,13.0,16.0,4.0,4.0
+fd:I2:20260919:Cremonese:Virtus_Entella,2026-09-19 14:00:00,2026,Serie B,Cremonese,Virtus Entella,0.0,0.0,,,,,,,11.0,17.0,5.0,4.0
+fd:I2:20260919:Palermo:Padova,2026-09-19 14:00:00,2026,Serie B,Palermo,Padova,2.0,1.0,,,,,,,22.0,20.0,8.0,5.0
 understat:31223,2026-09-19 14:00:00,2026,EPL,Newcastle United,Hull,2.0,1.0,1.37521,1.15888,4.0,7.0,10.944444444444445,13.25,,,,
 understat:31224,2026-09-19 14:00:00,2026,EPL,Brighton,Arsenal,3.0,0.0,2.11268,1.23979,6.0,10.0,8.083333333333334,12.642857142857142,,,,
 understat:31226,2026-09-19 14:00:00,2026,EPL,Everton,Ipswich,1.0,0.0,2.58285,1.10179,7.0,5.0,13.80952380952381,13.523809523809524,,,,
 understat:30830,2026-09-19 14:15:00,2026,La liga,Athletic Club,Alaves,0.0,0.0,1.46153,0.0461634,6.0,0.0,5.5625,18.333333333333332,,,,
+fd:E1:20260919:Birmingham:Middlesbrough,2026-09-19 15:00:00,2026,Championship,Birmingham,Middlesbrough,2.0,2.0,,,,,,,15.0,15.0,5.0,4.0
+fd:E1:20260919:Burnley:Derby,2026-09-19 15:00:00,2026,Championship,Burnley,Derby,1.0,1.0,,,,,,,6.0,17.0,2.0,6.0
+fd:E1:20260919:Lincoln:Swansea,2026-09-19 15:00:00,2026,Championship,Lincoln,Swansea,1.0,2.0,,,,,,,13.0,10.0,4.0,4.0
+fd:E1:20260919:Portsmouth:Blackburn,2026-09-19 15:00:00,2026,Championship,Portsmouth,Blackburn,2.0,2.0,,,,,,,22.0,8.0,7.0,5.0
+fd:E1:20260919:QPR:Preston,2026-09-19 15:00:00,2026,Championship,QPR,Preston,2.0,2.0,,,,,,,30.0,13.0,6.0,3.0
+fd:E1:20260919:Wrexham:Southampton,2026-09-19 15:00:00,2026,Championship,Wrexham,Southampton,2.0,1.0,,,,,,,8.0,20.0,4.0,7.0
+fd:SP2:20260919:Andorra:Sp_Gijon,2026-09-19 15:15:00,2026,La liga 2,Andorra,Sp Gijon,1.0,3.0,,,,,,,13.0,7.0,4.0,4.0
 understat:31978,2026-09-19 15:15:00,2026,Ligue 1,Paris FC,Strasbourg,2.0,1.0,0.907233,0.230224,11.0,2.0,8.355555555555556,15.954545454545455,,,,
 understat:31603,2026-09-19 16:00:00,2026,Serie A,Roma,Inter,2.0,2.0,2.31246,2.58716,13.0,9.0,8.03125,21.5,,,,
+fd:I2:20260919:Sampdoria:Catanzaro,2026-09-19 16:15:00,2026,Serie B,Sampdoria,Catanzaro,2.0,1.0,,,,,,,17.0,10.0,6.0,1.0
 understat:31227,2026-09-19 16:30:00,2026,EPL,Nottingham Forest,Coventry,0.0,1.0,1.31852,0.69375,9.0,2.0,11.866666666666667,13.941176470588236,,,,
 understat:30832,2026-09-19 16:30:00,2026,La liga,Celta Vigo,Racing Santander,5.0,0.0,2.2295,0.719901,7.0,6.0,10.53125,14.722222222222221,,,,
 understat:32276,2026-09-19 16:30:00,2026,Bundesliga,VfB Stuttgart,Borussia Dortmund,0.0,1.0,0.666049,2.11223,3.0,11.0,12.875,10.25,,,,
+fd:SP2:20260919:Castellon:Tenerife,2026-09-19 17:30:00,2026,La liga 2,Castellon,Tenerife,5.0,0.0,,,,,,,9.0,12.0,5.0,4.0
+fd:SP2:20260919:Eldense:Eibar,2026-09-19 17:30:00,2026,La liga 2,Eldense,Eibar,1.0,2.0,,,,,,,24.0,8.0,6.0,4.0
+fd:I2:20260919:Ascoli:Avellino,2026-09-19 18:30:00,2026,Serie B,Ascoli,Avellino,3.0,1.0,,,,,,,15.0,12.0,6.0,3.0
 understat:31604,2026-09-19 18:45:00,2026,Serie A,Venezia,Lazio,0.0,2.0,1.84911,1.7718,5.0,8.0,14.789473684210526,14.45,,,,
 understat:31979,2026-09-19 18:45:00,2026,Ligue 1,Toulouse,Le Havre,3.0,2.0,2.82989,2.15515,6.0,8.0,8.89655172413793,11.153846153846153,,,,
 understat:31980,2026-09-19 18:45:00,2026,Ligue 1,Angers,Troyes,2.0,0.0,2.38813,1.16391,8.0,6.0,9.4,11.931034482758621,,,,
 understat:31982,2026-09-19 18:45:00,2026,Ligue 1,Le Mans,Lorient,2.0,1.0,0.959241,1.07323,4.0,1.0,10.416666666666666,17.125,,,,
 understat:31983,2026-09-19 18:45:00,2026,Ligue 1,Lyon,Rennes,4.0,0.0,3.60496,1.15783,12.0,5.0,9.387096774193548,13.105263157894736,,,,
+fd:F2:20260919:Metz:Saint-Etienne,2026-09-19 19:00:00,2026,Ligue 2,Metz,Saint-Etienne,2.0,2.0,,,,,,,10.0,12.0,3.0,6.0
 understat:30837,2026-09-19 19:00:00,2026,La liga,Sevilla,Barcelona,1.0,3.0,0.758355,3.56261,5.0,6.0,24.533333333333335,7.15,,,,
+fd:D2:20260919:Dresden:Hertha_Berlin,2026-09-19 19:30:00,2026,Bundesliga 2,Dresden,Hertha Berlin,1.0,2.0,,,,,,,7.0,26.0,2.0,9.0
+fd:SP2:20260919:Cadiz:Girona,2026-09-19 20:00:00,2026,La liga 2,Cadiz,Girona,1.0,2.0,,,,,,,15.0,15.0,5.0,7.0
 understat:31605,2026-09-20 10:30:00,2026,Serie A,Fiorentina,Napoli,1.0,1.0,1.06168,2.13022,4.0,8.0,16.05263157894737,10.941176470588236,,,,
+fd:E1:20260920:Wolverhampton_Wanderers:West_Bromwich_Albion,2026-09-20 12:00:00,2026,Championship,Wolverhampton Wanderers,West Bromwich Albion,1.0,0.0,,,,,,,15.0,7.0,6.0,2.0
 understat:30835,2026-09-20 12:00:00,2026,La liga,Getafe,Malaga,1.0,0.0,1.18796,0.660498,6.0,6.0,8.555555555555555,9.833333333333334,,,,
+fd:D2:20260920:Arminia_Bielefeld:FC_Heidenheim,2026-09-20 12:30:00,2026,Bundesliga 2,Arminia Bielefeld,FC Heidenheim,2.0,2.0,,,,,,,6.0,14.0,3.0,7.0
+fd:D2:20260920:Cottbus:St._Pauli,2026-09-20 12:30:00,2026,Bundesliga 2,Cottbus,St. Pauli,1.0,1.0,,,,,,,14.0,7.0,5.0,2.0
+fd:D2:20260920:Hannover_96:Bochum,2026-09-20 12:30:00,2026,Bundesliga 2,Hannover 96,Bochum,2.0,1.0,,,,,,,10.0,28.0,7.0,10.0
+fd:SP2:20260920:Sabadell:Real_Oviedo,2026-09-20 13:00:00,2026,La liga 2,Sabadell,Real Oviedo,3.0,1.0,,,,,,,16.0,9.0,7.0,2.0
 understat:31222,2026-09-20 13:00:00,2026,EPL,Manchester City,Sunderland,5.0,3.0,2.66856,3.10661,12.0,9.0,9.954545454545455,10.208333333333334,,,,
 understat:31225,2026-09-20 13:00:00,2026,EPL,Leeds,Crystal Palace,0.0,0.0,1.08552,1.12905,0.0,4.0,9.818181818181818,12.952380952380953,,,,
 understat:31228,2026-09-20 13:00:00,2026,EPL,Bournemouth,Liverpool,0.0,1.0,0.944706,1.29116,8.0,8.0,11.285714285714286,9.666666666666666,,,,
 understat:31606,2026-09-20 13:00:00,2026,Serie A,Frosinone,Como,2.0,0.0,2.26034,2.28858,5.0,16.0,8.275862068965518,5.217391304347826,,,,
 understat:31607,2026-09-20 13:00:00,2026,Serie A,Parma Calcio 1913,Genoa,2.0,1.0,0.860604,0.86391,1.0,1.0,11.227272727272727,6.257142857142857,,,,
 understat:31981,2026-09-20 13:00:00,2026,Ligue 1,Auxerre,Brest,2.0,1.0,0.769606,0.304072,4.0,2.0,8.387096774193548,8.125,,,,
+fd:E1:20260920:Norwich:Bolton,2026-09-20 13:30:00,2026,Championship,Norwich,Bolton,3.0,4.0,,,,,,,10.0,9.0,4.0,5.0
 understat:32277,2026-09-20 13:30:00,2026,Bundesliga,Bayer Leverkusen,RasenBallsport Leipzig,2.0,0.0,2.54515,0.929998,10.0,4.0,11.25,12.777777777777779,,,,
+fd:I2:20260920:Arezzo:Sudtirol,2026-09-20 14:00:00,2026,Serie B,Arezzo,Sudtirol,1.0,4.0,,,,,,,12.0,10.0,3.0,5.0
+fd:I2:20260920:Verona:Vicenza,2026-09-20 14:00:00,2026,Serie B,Verona,Vicenza,2.0,1.0,,,,,,,16.0,9.0,6.0,2.0
 understat:30831,2026-09-20 14:15:00,2026,La liga,Atletico Madrid,Real Madrid,2.0,1.0,2.40619,0.420774,14.0,3.0,8.206896551724139,18.166666666666668,,,,
+fd:SP2:20260920:Ceuta:Real_Valladolid,2026-09-20 15:15:00,2026,La liga 2,Ceuta,Real Valladolid,1.0,1.0,,,,,,,12.0,11.0,3.0,6.0
 understat:31977,2026-09-20 15:15:00,2026,Ligue 1,Nice,Lille,2.0,1.0,1.93232,1.93315,8.0,12.0,15.19047619047619,16.466666666666665,,,,
 understat:31229,2026-09-20 15:30:00,2026,EPL,Fulham,Manchester United,1.0,1.0,1.71719,2.12453,5.0,15.0,15.61111111111111,20.071428571428573,,,,
 understat:32761,2026-09-20 15:30:00,2026,Bundesliga,Schalke 04,Elversberg,0.0,0.0,1.26962,0.795372,5.0,8.0,10.363636363636363,7.333333333333333,,,,
 understat:31608,2026-09-20 16:00:00,2026,Serie A,Juventus,Atalanta,2.0,0.0,1.91682,0.489173,7.0,3.0,20.153846153846153,14.818181818181818,,,,
+fd:I2:20260920:Mantova:Pisa,2026-09-20 16:15:00,2026,Serie B,Mantova,Pisa,2.0,2.0,,,,,,,14.0,14.0,3.0,5.0
 understat:30833,2026-09-20 16:30:00,2026,La liga,Deportivo La Coruna,Real Betis,1.0,1.0,1.93872,1.00253,4.0,7.0,18.15,12.454545454545455,,,,
 understat:30839,2026-09-20 16:30:00,2026,La liga,Villarreal,Levante,3.0,1.0,4.28569,0.941792,11.0,5.0,12.052631578947368,12.838709677419354,,,,
+fd:SP2:20260920:Almeria:Celta_B,2026-09-20 17:30:00,2026,La liga 2,Almeria,Celta B,2.0,0.0,,,,,,,16.0,12.0,6.0,1.0
+fd:SP2:20260920:Las_Palmas:Burgos,2026-09-20 17:30:00,2026,La liga 2,Las Palmas,Burgos,1.0,2.0,,,,,,,13.0,8.0,3.0,3.0
 understat:32278,2026-09-20 17:30:00,2026,Bundesliga,Paderborn,Hoffenheim,3.0,1.0,1.34065,1.67256,4.0,30.0,30.583333333333332,5.961538461538462,,,,
+fd:I2:20260920:Modena:Empoli,2026-09-20 18:30:00,2026,Serie B,Modena,Empoli,2.0,1.0,,,,,,,22.0,9.0,8.0,4.0
 understat:31609,2026-09-20 18:45:00,2026,Serie A,AC Milan,Lecce,3.0,0.0,2.47529,0.217933,6.0,2.0,12.4375,15.2,,,,
 understat:31984,2026-09-20 18:45:00,2026,Ligue 1,Marseille,Paris Saint Germain,1.0,2.0,1.86575,4.67277,7.0,22.0,21.785714285714285,15.4,,,,
 understat:30838,2026-09-20 19:00:00,2026,La liga,Valencia,Real Sociedad,2.0,3.0,1.52762,2.33411,9.0,10.0,9.473684210526315,7.484848484848484,,,,
+fd:SP2:20260920:Leganes:Granada,2026-09-20 20:00:00,2026,La liga 2,Leganes,Granada,3.0,2.0,,,,,,,21.0,21.0,12.0,7.0
 understat:31230,2026-10-10 11:30:00,2026,EPL,Arsenal,Leeds,,,,,,,,,,,,
 understat:31985,2026-10-10 13:00:00,2026,Ligue 1,Brest,Angers,,,,,,,,,,,,
 understat:31986,2026-10-10 13:00:00,2026,Ligue 1,Lens,Lyon,,,,,,,,,,,,
