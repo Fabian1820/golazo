@@ -141,8 +141,9 @@ Los volcados originales (~78 MB) ya no se versionan: sólo dos de sus siete
 ficheros se usaban.
 
 > ⚠️ **Este repositorio tuvo un token de la API de Kaggle en la historia de git
-> desde el primer commit.** Si lo has clonado, el token sigue ahí. Ver
-> [docs/SEGURIDAD.md](docs/SEGURIDAD.md) para revocarlo y purgar la historia.
+> desde el primer commit.** La historia se purgó el 2026-09-28: si tienes un
+> clon anterior a esa fecha, bórralo y vuelve a clonar. Ver
+> [docs/SEGURIDAD.md](docs/SEGURIDAD.md).
 
 ---
 

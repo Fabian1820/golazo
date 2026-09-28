@@ -1,5 +1,14 @@
 # Credencial expuesta en la historia de git
 
+> **Estado (2026-09-28): historia purgada.** Se ejecutó la reescritura descrita
+> abajo y se publicó con `--force-with-lease`. Ningún commit de la rama `main`
+> contiene ya `src/kaggle.json`, `venv/` ni `src/soccer/`, y el repositorio
+> pasó de ~160 MB a ~5 MB. Los SHA citados en este documento son los de la
+> historia anterior y ya no existen en el repositorio.
+>
+> Quedan dos pasos fuera del repositorio: revocar el token (paso 1, lo tiene
+> que hacer su dueño) y pedir a GitHub que purgue la caché (paso 4).
+
 ## Qué pasó
 
 `src/kaggle.json` —un token de la API de Kaggle, con `username` y `key`— se
