@@ -31,6 +31,7 @@ import pandas as pd
 
 from golazo.artifacts import ModelArtifact
 from golazo.config import OUTCOMES, REPORTS_DIR
+from golazo.training import DEFAULT_MODEL
 
 N_BOOT = 10_000
 SEED = 42
@@ -59,7 +60,8 @@ def intervalo(dif: np.ndarray, semanas: np.ndarray, n_boot: int = N_BOOT) -> tup
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--servido", default=None,
-                    help="modelo a auditar (por defecto, el del artefacto 'latest')")
+                    help="modelo a auditar (por defecto, el del artefacto 'latest', "
+                         "o el que entrena el pipeline si no hay artefacto)")
     args = ap.parse_args()
 
     ruta = REPORTS_DIR / "backtest_predictions.csv"
@@ -71,7 +73,10 @@ def main() -> None:
         try:
             servido = ModelArtifact.load().metadata.model_name
         except FileNotFoundError:
-            raise SystemExit("No hay modelo entrenado y no se indicó --servido") from None
+            # En CI no hay artefacto: /models/ no se versiona. El pipeline diario
+            # entrena sin --model, así que lo que se sirve es DEFAULT_MODEL.
+            servido = DEFAULT_MODEL
+            print(f"Sin artefacto entrenado; se audita el modelo por defecto del pipeline ({servido}).")
 
     preds = pd.read_csv(ruta, parse_dates=["date"])
     y = preds["result"].to_numpy()

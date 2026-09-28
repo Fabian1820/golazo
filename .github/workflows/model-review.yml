@@ -13,6 +13,11 @@ on:
 jobs:
   revisar:
     runs-on: ubuntu-latest
+    env:
+      # pypi.org a veces no responde a tiempo desde los runners y pip acaba en
+      # un ResolutionImpossible engañoso (pasó el 2026-09-28).
+      PIP_DEFAULT_TIMEOUT: "60"
+      PIP_RETRIES: "10"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
