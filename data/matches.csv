@@ -20953,6 +20953,16 @@ understat:31609,2026-09-20 18:45:00,2026,Serie A,AC Milan,Lecce,3.0,0.0,2.47529,
 understat:31984,2026-09-20 18:45:00,2026,Ligue 1,Marseille,Paris Saint Germain,1.0,2.0,1.86575,4.67277,7.0,22.0,21.785714285714285,15.4,,,,
 understat:30838,2026-09-20 19:00:00,2026,La liga,Valencia,Real Sociedad,2.0,3.0,1.52762,2.33411,9.0,10.0,9.473684210526315,7.484848484848484,,,,
 fd:SP2:20260920:Leganes:Granada,2026-09-20 20:00:00,2026,La liga 2,Leganes,Granada,3.0,2.0,,,,,,,21.0,21.0,12.0,7.0
+fd:SP2:20260925:Girona:Albacete,2026-09-25 19:30:00,2026,La liga 2,Girona,Albacete,2.0,0.0,,,,,,,18.0,20.0,3.0,5.0
+fd:SP2:20260926:Ceuta:Sociedad_B,2026-09-26 13:00:00,2026,La liga 2,Ceuta,Sociedad B,3.0,1.0,,,,,,,25.0,5.0,8.0,2.0
+fd:SP2:20260926:Granada:Andorra,2026-09-26 15:15:00,2026,La liga 2,Granada,Andorra,2.0,3.0,,,,,,,23.0,6.0,5.0,5.0
+fd:SP2:20260926:Celta_B:Sabadell,2026-09-26 17:30:00,2026,La liga 2,Celta B,Sabadell,1.0,1.0,,,,,,,4.0,10.0,1.0,2.0
+fd:SP2:20260926:Tenerife:Cadiz,2026-09-26 17:30:00,2026,La liga 2,Tenerife,Cadiz,1.0,1.0,,,,,,,10.0,12.0,3.0,3.0
+fd:SP2:20260927:Real_Valladolid:Cordoba,2026-09-27 13:00:00,2026,La liga 2,Real Valladolid,Cordoba,3.0,1.0,,,,,,,12.0,16.0,7.0,4.0
+fd:SP2:20260927:Mallorca:Almeria,2026-09-27 15:15:00,2026,La liga 2,Mallorca,Almeria,0.0,1.0,,,,,,,17.0,11.0,5.0,3.0
+fd:SP2:20260927:Burgos:Eldense,2026-09-27 17:30:00,2026,La liga 2,Burgos,Eldense,1.0,0.0,,,,,,,6.0,11.0,2.0,4.0
+fd:SP2:20260927:Eibar:Las_Palmas,2026-09-27 17:30:00,2026,La liga 2,Eibar,Las Palmas,3.0,2.0,,,,,,,18.0,11.0,6.0,5.0
+fd:SP2:20260927:Real_Oviedo:Sp_Gijon,2026-09-27 20:00:00,2026,La liga 2,Real Oviedo,Sp Gijon,2.0,0.0,,,,,,,16.0,11.0,6.0,3.0
 understat:31230,2026-10-10 11:30:00,2026,EPL,Arsenal,Leeds,,,,,,,,,,,,
 understat:31985,2026-10-10 13:00:00,2026,Ligue 1,Brest,Angers,,,,,,,,,,,,
 understat:31986,2026-10-10 13:00:00,2026,Ligue 1,Lens,Lyon,,,,,,,,,,,,
