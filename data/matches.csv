@@ -20964,6 +20964,16 @@ fd:SP2:20260927:Burgos:Eldense,2026-09-27 17:30:00,2026,La liga 2,Burgos,Eldense
 fd:SP2:20260927:Eibar:Las_Palmas,2026-09-27 17:30:00,2026,La liga 2,Eibar,Las Palmas,3.0,2.0,,,,,,,18.0,11.0,6.0,5.0
 fd:SP2:20260927:Real_Oviedo:Sp_Gijon,2026-09-27 20:00:00,2026,La liga 2,Real Oviedo,Sp Gijon,2.0,0.0,,,,,,,16.0,11.0,6.0,3.0
 fd:SP2:20260928:Leganes:Castellon,2026-09-28 19:30:00,2026,La liga 2,Leganes,Castellon,0.0,2.0,,,,,,,15.0,20.0,2.0,6.0
+fd:SP2:20261002:Eldense:Real_Oviedo,2026-10-02 19:30:00,2026,La liga 2,Eldense,Real Oviedo,4.0,1.0,,,,,,,17.0,15.0,9.0,4.0
+fd:SP2:20261003:Albacete:Eibar,2026-10-03 13:00:00,2026,La liga 2,Albacete,Eibar,1.0,3.0,,,,,,,22.0,8.0,6.0,6.0
+fd:SP2:20261003:Almeria:Burgos,2026-10-03 15:15:00,2026,La liga 2,Almeria,Burgos,2.0,1.0,,,,,,,25.0,9.0,8.0,4.0
+fd:SP2:20261003:Cadiz:Leganes,2026-10-03 17:30:00,2026,La liga 2,Cadiz,Leganes,4.0,0.0,,,,,,,24.0,12.0,9.0,1.0
+fd:SP2:20261004:Sociedad_B:Granada,2026-10-04 13:00:00,2026,La liga 2,Sociedad B,Granada,2.0,3.0,,,,,,,17.0,23.0,6.0,5.0
+fd:SP2:20261004:Sp_Gijon:Celta_B,2026-10-04 15:15:00,2026,La liga 2,Sp Gijon,Celta B,3.0,2.0,,,,,,,13.0,14.0,7.0,8.0
+fd:SP2:20261004:Castellon:Ceuta,2026-10-04 17:30:00,2026,La liga 2,Castellon,Ceuta,1.0,1.0,,,,,,,10.0,13.0,2.0,4.0
+fd:SP2:20261004:Las_Palmas:Real_Valladolid,2026-10-04 17:30:00,2026,La liga 2,Las Palmas,Real Valladolid,2.0,2.0,,,,,,,12.0,15.0,4.0,7.0
+fd:SP2:20261004:Girona:Mallorca,2026-10-04 20:00:00,2026,La liga 2,Girona,Mallorca,0.0,0.0,,,,,,,16.0,9.0,5.0,0.0
+fd:SP2:20261004:Sabadell:Andorra,2026-10-04 20:00:00,2026,La liga 2,Sabadell,Andorra,0.0,0.0,,,,,,,19.0,4.0,3.0,0.0
 understat:31230,2026-10-10 11:30:00,2026,EPL,Arsenal,Leeds,,,,,,,,,,,,
 understat:31985,2026-10-10 13:00:00,2026,Ligue 1,Brest,Angers,,,,,,,,,,,,
 understat:31986,2026-10-10 13:00:00,2026,Ligue 1,Lens,Lyon,,,,,,,,,,,,
