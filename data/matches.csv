@@ -20975,9 +20975,9 @@ fd:SP2:20261004:Las_Palmas:Real_Valladolid,2026-10-04 17:30:00,2026,La liga 2,La
 fd:SP2:20261004:Girona:Mallorca,2026-10-04 20:00:00,2026,La liga 2,Girona,Mallorca,0.0,0.0,,,,,,,16.0,9.0,5.0,0.0
 fd:SP2:20261004:Sabadell:Andorra,2026-10-04 20:00:00,2026,La liga 2,Sabadell,Andorra,0.0,0.0,,,,,,,19.0,4.0,3.0,0.0
 fd:SP2:20261005:Cordoba:Tenerife,2026-10-05 19:30:00,2026,La liga 2,Cordoba,Tenerife,3.0,2.0,,,,,,,16.0,10.0,6.0,2.0
-understat:32283,2026-10-09 18:30:00,2026,Bundesliga,Borussia Dortmund,Werder Bremen,,,,,,,,,,,,
-understat:31986,2026-10-09 18:45:00,2026,Ligue 1,Lens,Lyon,,,,,,,,,,,,
-understat:30845,2026-10-09 19:00:00,2026,La liga,Malaga,Espanyol,,,,,,,,,,,,
+understat:32283,2026-10-09 18:30:00,2026,Bundesliga,Borussia Dortmund,Werder Bremen,2.0,2.0,2.61721,0.849269,20.0,2.0,7.083333333333333,24.363636363636363,,,,
+understat:31986,2026-10-09 18:45:00,2026,Ligue 1,Lens,Lyon,2.0,1.0,1.40616,1.031,6.0,5.0,12.083333333333334,14.380952380952381,,,,
+understat:30845,2026-10-09 19:00:00,2026,La liga,Malaga,Espanyol,1.0,1.0,0.685224,1.37967,11.0,6.0,10.363636363636363,17.1875,,,,
 understat:31230,2026-10-10 11:30:00,2026,EPL,Arsenal,Leeds,,,,,,,,,,,,
 understat:30847,2026-10-10 12:00:00,2026,La liga,Rayo Vallecano,Athletic Club,,,,,,,,,,,,
 understat:31613,2026-10-10 13:00:00,2026,Serie A,Genoa,Fiorentina,,,,,,,,,,,,
