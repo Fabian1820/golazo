@@ -21074,6 +21074,18 @@ understat:31239,2026-10-12 19:00:00,2026,EPL,Coventry,Newcastle United,4.0,1.0,1
 understat:30844,2026-10-12 19:00:00,2026,La liga,Levante,Sevilla,3.0,3.0,2.00633,3.19601,6.0,12.0,9.782608695652174,13.5,,,,
 fd:F2:20261012:Dijon:Metz,2026-10-12 19:45:00,2026,Ligue 2,Dijon,Metz,4.0,2.0,,,,,,,17.0,13.0,7.0,4.0
 fd:SP2:20261012:Tenerife:Girona,2026-10-12 20:00:00,2026,La liga 2,Tenerife,Girona,1.0,1.0,,,,,,,12.0,12.0,3.0,4.0
+fd:E1:20261013:Bristol_City:Blackburn,2026-10-13 19:45:00,2026,Championship,Bristol City,Blackburn,0.0,1.0,,,,,,,20.0,3.0,7.0,1.0
+fd:E1:20261013:Burnley:Charlton,2026-10-13 19:45:00,2026,Championship,Burnley,Charlton,2.0,2.0,,,,,,,18.0,9.0,4.0,5.0
+fd:E1:20261013:Cardiff:Watford,2026-10-13 19:45:00,2026,Championship,Cardiff,Watford,5.0,1.0,,,,,,,22.0,14.0,10.0,4.0
+fd:E1:20261013:Millwall:Swansea,2026-10-13 19:45:00,2026,Championship,Millwall,Swansea,0.0,1.0,,,,,,,8.0,14.0,4.0,2.0
+fd:E1:20261013:Wolverhampton_Wanderers:Bolton,2026-10-13 19:45:00,2026,Championship,Wolverhampton Wanderers,Bolton,1.0,3.0,,,,,,,19.0,10.0,3.0,6.0
+fd:E1:20261013:Wrexham:West_Bromwich_Albion,2026-10-13 19:45:00,2026,Championship,Wrexham,West Bromwich Albion,1.0,2.0,,,,,,,8.0,9.0,4.0,3.0
+fd:E1:20261013:Birmingham:Preston,2026-10-13 20:00:00,2026,Championship,Birmingham,Preston,4.0,0.0,,,,,,,19.0,6.0,7.0,1.0
+fd:E1:20261013:Stoke:Middlesbrough,2026-10-13 20:00:00,2026,Championship,Stoke,Middlesbrough,2.0,3.0,,,,,,,8.0,20.0,1.0,9.0
+fd:E1:20261014:Norwich:Southampton,2026-10-14 19:45:00,2026,Championship,Norwich,Southampton,0.0,1.0,,,,,,,12.0,15.0,4.0,4.0
+fd:E1:20261014:Portsmouth:Sheffield_United,2026-10-14 19:45:00,2026,Championship,Portsmouth,Sheffield United,3.0,2.0,,,,,,,24.0,11.0,7.0,4.0
+fd:E1:20261014:QPR:Derby,2026-10-14 19:45:00,2026,Championship,QPR,Derby,4.0,1.0,,,,,,,9.0,15.0,7.0,6.0
+fd:E1:20261014:Lincoln:West_Ham,2026-10-14 20:00:00,2026,Championship,Lincoln,West Ham,0.0,6.0,,,,,,,5.0,32.0,0.0,12.0
 understat:32290,2026-10-16 18:30:00,2026,Bundesliga,Eintracht Frankfurt,FC Cologne,,,,,,,,,,,,
 understat:31624,2026-10-16 18:45:00,2026,Serie A,Frosinone,Sassuolo,,,,,,,,,,,,
 understat:31996,2026-10-16 18:45:00,2026,Ligue 1,Le Mans,Toulouse,,,,,,,,,,,,
