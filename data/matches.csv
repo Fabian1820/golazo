@@ -21187,11 +21187,11 @@ fd:SP2:20261019:Celta_B:Tenerife,2026-10-19 19:30:00,2026,La liga 2,Celta B,Tene
 fd:F2:20261019:Rodez:Montpellier,2026-10-19 19:45:00,2026,Ligue 2,Rodez,Montpellier,0.0,3.0,,,,,,,16.0,16.0,2.0,8.0
 fd:E1:20261020:Wolverhampton_Wanderers:Portsmouth,2026-10-20 19:45:00,2026,Championship,Wolverhampton Wanderers,Portsmouth,1.0,1.0,,,,,,,15.0,8.0,2.0,1.0
 understat:30827,2026-10-21 18:00:00,2026,La liga,Levante,Athletic Club,,,,,,,,,,,,
-understat:32302,2026-10-23 18:30:00,2026,Bundesliga,VfB Stuttgart,Borussia M.Gladbach,,,,,,,,,,,,
-understat:31638,2026-10-23 18:45:00,2026,Serie A,Torino,Monza,,,,,,,,,,,,
-understat:32005,2026-10-23 18:45:00,2026,Ligue 1,Brest,Nice,,,,,,,,,,,,
-understat:31250,2026-10-23 19:00:00,2026,EPL,Ipswich,Nottingham Forest,,,,,,,,,,,,
-understat:30860,2026-10-23 19:00:00,2026,La liga,Alaves,Malaga,,,,,,,,,,,,
+understat:32302,2026-10-23 18:30:00,2026,Bundesliga,VfB Stuttgart,Borussia M.Gladbach,2.0,3.0,1.97918,2.62544,6.0,3.0,10.214285714285714,15.48,,,,
+understat:31638,2026-10-23 18:45:00,2026,Serie A,Torino,Monza,3.0,2.0,1.44549,0.441913,8.0,5.0,16.4375,15.625,,,,
+understat:32005,2026-10-23 18:45:00,2026,Ligue 1,Brest,Nice,1.0,2.0,2.11691,0.689003,6.0,1.0,13.45,10.142857142857142,,,,
+understat:31250,2026-10-23 19:00:00,2026,EPL,Ipswich,Nottingham Forest,1.0,1.0,0.856862,2.75509,4.0,6.0,14.526315789473685,12.761904761904763,,,,
+understat:30860,2026-10-23 19:00:00,2026,La liga,Alaves,Malaga,1.0,1.0,1.80426,0.805685,5.0,3.0,7.805555555555555,14.11111111111111,,,,
 understat:31251,2026-10-24 11:30:00,2026,EPL,Aston Villa,Manchester City,,,,,,,,,,,,
 understat:30866,2026-10-24 12:00:00,2026,La liga,Rayo Vallecano,Elche,,,,,,,,,,,,
 understat:31631,2026-10-24 13:00:00,2026,Serie A,Cagliari,Bologna,,,,,,,,,,,,
