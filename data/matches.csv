@@ -21286,9 +21286,9 @@ fd:SP2:20261026:Andorra:Burgos,2026-10-26 19:30:00,2026,La liga 2,Andorra,Burgos
 fd:F2:20261026:Boulogne:Reims,2026-10-26 19:45:00,2026,Ligue 2,Boulogne,Reims,1.0,1.0,,,,,,,13.0,7.0,3.0,2.0
 fd:F2:20261026:Montpellier:Red_Star,2026-10-26 19:45:00,2026,Ligue 2,Montpellier,Red Star,2.0,1.0,,,,,,,6.0,14.0,3.0,5.0
 understat:30868,2026-10-26 20:00:00,2026,La liga,Sevilla,Osasuna,2.0,0.0,0.873541,0.757546,5.0,3.0,17.57894736842105,15.461538461538462,,,,
-understat:31647,2026-10-27 17:30:00,2026,Serie A,Sassuolo,Lazio,,,,,,,,,,,,
-understat:31641,2026-10-27 19:45:00,2026,Serie A,Roma,Cagliari,,,,,,,,,,,,
-understat:31648,2026-10-27 19:45:00,2026,Serie A,Torino,Como,,,,,,,,,,,,
+understat:31647,2026-10-27 17:30:00,2026,Serie A,Sassuolo,Lazio,2.0,6.0,1.06739,4.35541,5.0,11.0,35.54545454545455,13.0,,,,
+understat:31641,2026-10-27 19:45:00,2026,Serie A,Roma,Cagliari,4.0,2.0,3.85275,2.47889,7.0,5.0,9.153846153846153,23.642857142857142,,,,
+understat:31648,2026-10-27 19:45:00,2026,Serie A,Torino,Como,1.0,3.0,1.45119,2.70766,0.0,13.0,27.583333333333332,11.785714285714286,,,,
 understat:31640,2026-10-28 17:30:00,2026,Serie A,AC Milan,Bologna,,,,,,,,,,,,
 understat:31646,2026-10-28 17:30:00,2026,Serie A,Parma Calcio 1913,Udinese,,,,,,,,,,,,
 understat:31649,2026-10-28 17:30:00,2026,Serie A,Venezia,Inter,,,,,,,,,,,,
