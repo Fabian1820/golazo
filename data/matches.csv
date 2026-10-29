@@ -21287,13 +21287,23 @@ fd:F2:20261026:Boulogne:Reims,2026-10-26 19:45:00,2026,Ligue 2,Boulogne,Reims,1.
 fd:F2:20261026:Montpellier:Red_Star,2026-10-26 19:45:00,2026,Ligue 2,Montpellier,Red Star,2.0,1.0,,,,,,,6.0,14.0,3.0,5.0
 understat:30868,2026-10-26 20:00:00,2026,La liga,Sevilla,Osasuna,2.0,0.0,0.873541,0.757546,5.0,3.0,17.57894736842105,15.461538461538462,,,,
 understat:31647,2026-10-27 17:30:00,2026,Serie A,Sassuolo,Lazio,2.0,6.0,1.06739,4.35541,5.0,11.0,35.54545454545455,13.0,,,,
+fd:I2:20261027:Benevento:Catanzaro,2026-10-27 18:00:00,2026,Serie B,Benevento,Catanzaro,1.0,1.0,,,,,,,18.0,10.0,3.0,2.0
+fd:I2:20261027:Ascoli:Sampdoria,2026-10-27 19:00:00,2026,Serie B,Ascoli,Sampdoria,2.0,0.0,,,,,,,12.0,13.0,5.0,6.0
+fd:I2:20261027:Cesena:Empoli,2026-10-27 19:00:00,2026,Serie B,Cesena,Empoli,2.0,1.0,,,,,,,13.0,11.0,3.0,5.0
+fd:I2:20261027:Mantova:Cremonese,2026-10-27 19:00:00,2026,Serie B,Mantova,Cremonese,0.0,2.0,,,,,,,20.0,6.0,9.0,5.0
+fd:I2:20261027:Padova:Sudtirol,2026-10-27 19:00:00,2026,Serie B,Padova,Sudtirol,2.0,0.0,,,,,,,12.0,22.0,5.0,5.0
+fd:I2:20261027:Vicenza:Modena,2026-10-27 19:00:00,2026,Serie B,Vicenza,Modena,1.0,2.0,,,,,,,6.0,10.0,2.0,3.0
+fd:I2:20261027:Virtus_Entella:Avellino,2026-10-27 19:00:00,2026,Serie B,Virtus Entella,Avellino,1.0,1.0,,,,,,,11.0,17.0,5.0,2.0
 understat:31641,2026-10-27 19:45:00,2026,Serie A,Roma,Cagliari,4.0,2.0,3.85275,2.47889,7.0,5.0,9.153846153846153,23.642857142857142,,,,
 understat:31648,2026-10-27 19:45:00,2026,Serie A,Torino,Como,1.0,3.0,1.45119,2.70766,0.0,13.0,27.583333333333332,11.785714285714286,,,,
-understat:31640,2026-10-28 17:30:00,2026,Serie A,AC Milan,Bologna,,,,,,,,,,,,
-understat:31646,2026-10-28 17:30:00,2026,Serie A,Parma Calcio 1913,Udinese,,,,,,,,,,,,
-understat:31649,2026-10-28 17:30:00,2026,Serie A,Venezia,Inter,,,,,,,,,,,,
-understat:31644,2026-10-28 19:45:00,2026,Serie A,Genoa,Juventus,,,,,,,,,,,,
-understat:31645,2026-10-28 19:45:00,2026,Serie A,Monza,Napoli,,,,,,,,,,,,
+understat:31640,2026-10-28 17:30:00,2026,Serie A,AC Milan,Bologna,2.0,4.0,1.94687,1.98783,0.0,6.0,9.4,15.424242424242424,,,,
+understat:31646,2026-10-28 17:30:00,2026,Serie A,Parma Calcio 1913,Udinese,0.0,0.0,1.1002,1.62069,3.0,8.0,17.0,8.6,,,,
+understat:31649,2026-10-28 17:30:00,2026,Serie A,Venezia,Inter,0.0,2.0,1.48725,2.24568,5.0,9.0,27.46153846153846,9.428571428571429,,,,
+fd:I2:20261028:Pisa:Palermo,2026-10-28 18:00:00,2026,Serie B,Pisa,Palermo,3.0,3.0,,,,,,,12.0,13.0,6.0,5.0
+fd:I2:20261028:Carrarese:Arezzo,2026-10-28 19:00:00,2026,Serie B,Carrarese,Arezzo,2.0,1.0,,,,,,,19.0,4.0,3.0,2.0
+fd:I2:20261028:Juve_Stabia:Verona,2026-10-28 19:00:00,2026,Serie B,Juve Stabia,Verona,0.0,1.0,,,,,,,11.0,14.0,3.0,4.0
+understat:31644,2026-10-28 19:45:00,2026,Serie A,Genoa,Juventus,2.0,0.0,0.921737,1.30403,5.0,16.0,18.533333333333335,11.176470588235293,,,,
+understat:31645,2026-10-28 19:45:00,2026,Serie A,Monza,Napoli,1.0,4.0,0.968013,2.49335,2.0,6.0,25.352941176470587,9.0,,,,
 understat:31643,2026-10-29 17:30:00,2026,Serie A,Frosinone,Lecce,,,,,,,,,,,,
 understat:31642,2026-10-29 19:45:00,2026,Serie A,Fiorentina,Atalanta,,,,,,,,,,,,
 understat:32012,2026-10-30 18:00:00,2026,Ligue 1,Le Havre,Paris Saint Germain,,,,,,,,,,,,
