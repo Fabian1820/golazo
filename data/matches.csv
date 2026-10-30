@@ -21304,8 +21304,8 @@ fd:I2:20261028:Carrarese:Arezzo,2026-10-28 19:00:00,2026,Serie B,Carrarese,Arezz
 fd:I2:20261028:Juve_Stabia:Verona,2026-10-28 19:00:00,2026,Serie B,Juve Stabia,Verona,0.0,1.0,,,,,,,11.0,14.0,3.0,4.0
 understat:31644,2026-10-28 19:45:00,2026,Serie A,Genoa,Juventus,2.0,0.0,0.921737,1.30403,5.0,16.0,18.533333333333335,11.176470588235293,,,,
 understat:31645,2026-10-28 19:45:00,2026,Serie A,Monza,Napoli,1.0,4.0,0.968013,2.49335,2.0,6.0,25.352941176470587,9.0,,,,
-understat:31643,2026-10-29 17:30:00,2026,Serie A,Frosinone,Lecce,,,,,,,,,,,,
-understat:31642,2026-10-29 19:45:00,2026,Serie A,Fiorentina,Atalanta,,,,,,,,,,,,
+understat:31643,2026-10-29 17:30:00,2026,Serie A,Frosinone,Lecce,5.0,1.0,4.21332,1.55988,10.0,0.0,3.8,6.521739130434782,,,,
+understat:31642,2026-10-29 19:45:00,2026,Serie A,Fiorentina,Atalanta,2.0,2.0,1.92268,1.20784,10.0,9.0,10.892857142857142,12.333333333333334,,,,
 understat:32012,2026-10-30 18:00:00,2026,Ligue 1,Le Havre,Paris Saint Germain,,,,,,,,,,,,
 understat:32765,2026-10-30 19:30:00,2026,Bundesliga,Elversberg,Mainz 05,,,,,,,,,,,,
 understat:30879,2026-10-30 20:00:00,2026,La liga,Villarreal,Espanyol,,,,,,,,,,,,
