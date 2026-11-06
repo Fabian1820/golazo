@@ -21404,11 +21404,12 @@ fd:F2:20261102:Reims:Sochaux,2026-11-02 19:45:00,2026,Ligue 2,Reims,Sochaux,2.0,
 understat:31269,2026-11-02 20:00:00,2026,EPL,Newcastle United,Everton,,,,,,,,,,,,
 understat:30872,2026-11-02 20:00:00,2026,La liga,Deportivo La Coruna,Osasuna,,,,,,,,,,,,
 fd:SP2:20261102:Mallorca:Cadiz,2026-11-02 20:00:00,2026,La liga 2,Mallorca,Cadiz,2.0,1.0,,,,,,,23.0,10.0,6.0,3.0
+fd:E1:20261103:Preston:Sheffield_Utd,2026-11-03 19:45:00,2026,Championship,Preston,Sheffield Utd,2.0,3.0,,,,,,,6.0,18.0,2.0,5.0
 fd:E1:20261103:Blackburn:Stoke,2026-11-03 19:45:00,2026,Championship,Blackburn,Stoke,1.0,2.0,,,,,,,14.0,11.0,3.0,3.0
 fd:E1:20261103:Charlton:Bolton,2026-11-03 19:45:00,2026,Championship,Charlton,Bolton,0.0,1.0,,,,,,,14.0,11.0,2.0,3.0
 fd:E1:20261103:Derby:Norwich,2026-11-03 19:45:00,2026,Championship,Derby,Norwich,0.0,4.0,,,,,,,6.0,19.0,2.0,8.0
 fd:E1:20261103:Portsmouth:Swansea,2026-11-03 19:45:00,2026,Championship,Portsmouth,Swansea,3.0,1.0,,,,,,,13.0,10.0,5.0,3.0
-fd:E1:20261103:Preston:Sheffield_Utd,2026-11-03 19:45:00,2026,Championship,Preston,Sheffield Utd,2.0,3.0,,,,,,,6.0,18.0,2.0,5.0
+fd:E1:20261103:Preston:Sheffield_United,2026-11-03 19:45:00,2026,Championship,Preston,Sheffield United,2.0,3.0,,,,,,,6.0,18.0,2.0,5.0
 fd:E1:20261103:QPR:Burnley,2026-11-03 19:45:00,2026,Championship,QPR,Burnley,1.0,1.0,,,,,,,20.0,4.0,5.0,1.0
 fd:E1:20261103:Watford:Lincoln,2026-11-03 19:45:00,2026,Championship,Watford,Lincoln,1.0,0.0,,,,,,,18.0,12.0,2.0,1.0
 fd:E1:20261103:Birmingham:Millwall,2026-11-03 20:00:00,2026,Championship,Birmingham,Millwall,3.0,0.0,,,,,,,19.0,16.0,9.0,2.0
