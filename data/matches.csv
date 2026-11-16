@@ -21514,6 +21514,16 @@ understat:32029,2026-11-08 19:45:00,2026,Ligue 1,Lens,Marseille,,,,,,,,,,,,
 understat:30880,2026-11-08 20:00:00,2026,La liga,Atletico Madrid,Barcelona,,,,,,,,,,,,
 fd:SP2:20261109:Las_Palmas:Eldense,2026-11-09 19:30:00,2026,La liga 2,Las Palmas,Eldense,2.0,0.0,,,,,,,12.0,7.0,5.0,1.0
 fd:SP2:20261109:Sabadell:Sociedad_B,2026-11-09 19:30:00,2026,La liga 2,Sabadell,Sociedad B,0.0,0.0,,,,,,,19.0,10.0,3.0,1.0
+fd:SP2:20261113:Leganes:Burgos,2026-11-13 19:30:00,2026,La liga 2,Leganes,Burgos,3.0,1.0,,,,,,,7.0,21.0,3.0,3.0
+fd:SP2:20261114:Real_Valladolid:Castellon,2026-11-14 13:00:00,2026,La liga 2,Real Valladolid,Castellon,0.0,1.0,,,,,,,7.0,15.0,3.0,3.0
+fd:SP2:20261114:Sociedad_B:Sp_Gijon,2026-11-14 15:15:00,2026,La liga 2,Sociedad B,Sp Gijon,2.0,2.0,,,,,,,18.0,13.0,4.0,4.0
+fd:SP2:20261114:Almeria:Andorra,2026-11-14 17:30:00,2026,La liga 2,Almeria,Andorra,2.0,1.0,,,,,,,5.0,16.0,4.0,5.0
+fd:SP2:20261114:Mallorca:Cordoba,2026-11-14 17:30:00,2026,La liga 2,Mallorca,Cordoba,3.0,3.0,,,,,,,16.0,14.0,7.0,4.0
+fd:SP2:20261114:Real_Oviedo:Girona,2026-11-14 20:00:00,2026,La liga 2,Real Oviedo,Girona,1.0,2.0,,,,,,,17.0,17.0,5.0,5.0
+fd:SP2:20261115:Tenerife:Ceuta,2026-11-15 13:00:00,2026,La liga 2,Tenerife,Ceuta,2.0,0.0,,,,,,,11.0,15.0,5.0,2.0
+fd:SP2:20261115:Granada:Las_Palmas,2026-11-15 15:15:00,2026,La liga 2,Granada,Las Palmas,1.0,0.0,,,,,,,17.0,12.0,3.0,6.0
+fd:SP2:20261115:Eibar:Cadiz,2026-11-15 17:30:00,2026,La liga 2,Eibar,Cadiz,1.0,1.0,,,,,,,18.0,8.0,9.0,5.0
+fd:SP2:20261115:Eldense:Sabadell,2026-11-15 17:30:00,2026,La liga 2,Eldense,Sabadell,2.0,0.0,,,,,,,14.0,5.0,6.0,0.0
 understat:32321,2026-11-20 19:30:00,2026,Bundesliga,Bayern Munich,FC Cologne,,,,,,,,,,,,
 understat:32038,2026-11-20 19:45:00,2026,Ligue 1,Troyes,Le Havre,,,,,,,,,,,,
 understat:30891,2026-11-20 20:00:00,2026,La liga,Athletic Club,Espanyol,,,,,,,,,,,,
