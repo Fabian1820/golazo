@@ -21618,7 +21618,10 @@ understat:31671,2026-11-22 19:45:00,2026,Serie A,Atalanta,Inter,,,,,,,,,,,,
 understat:32033,2026-11-22 19:45:00,2026,Ligue 1,Marseille,Le Mans,,,,,,,,,,,,
 understat:30893,2026-11-22 20:00:00,2026,La liga,Getafe,Atletico Madrid,,,,,,,,,,,,
 fd:SP2:20261122:Burgos:Albacete,2026-11-22 20:00:00,2026,La liga 2,Burgos,Albacete,1.0,0.0,,,,,,,14.0,20.0,3.0,2.0
+fd:SP2:20261123:Ceuta:Almeria,2026-11-23 19:30:00,2026,La liga 2,Ceuta,Almeria,2.0,3.0,,,,,,,18.0,14.0,7.0,6.0
 understat:31677,2026-11-23 19:45:00,2026,Serie A,Monza,Fiorentina,,,,,,,,,,,,
+fd:F2:20261123:Nantes:Grenoble,2026-11-23 19:45:00,2026,Ligue 2,Nantes,Grenoble,1.0,0.0,,,,,,,25.0,13.0,10.0,2.0
+fd:F2:20261123:Sochaux:Dunkerque,2026-11-23 19:45:00,2026,Ligue 2,Sochaux,Dunkerque,2.0,3.0,,,,,,,13.0,14.0,5.0,6.0
 understat:31282,2026-11-23 20:00:00,2026,EPL,Brentford,Everton,,,,,,,,,,,,
 understat:30894,2026-11-23 20:00:00,2026,La liga,Levante,Elche,,,,,,,,,,,,
 understat:32334,2026-11-27 19:30:00,2026,Bundesliga,Werder Bremen,Borussia M.Gladbach,,,,,,,,,,,,
