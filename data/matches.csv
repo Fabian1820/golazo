@@ -21624,6 +21624,28 @@ fd:F2:20261123:Nantes:Grenoble,2026-11-23 19:45:00,2026,Ligue 2,Nantes,Grenoble,
 fd:F2:20261123:Sochaux:Dunkerque,2026-11-23 19:45:00,2026,Ligue 2,Sochaux,Dunkerque,2.0,3.0,,,,,,,13.0,14.0,5.0,6.0
 understat:31282,2026-11-23 20:00:00,2026,EPL,Brentford,Everton,,,,,,,,,,,,
 understat:30894,2026-11-23 20:00:00,2026,La liga,Levante,Elche,,,,,,,,,,,,
+fd:I2:20261124:Juve_Stabia:Catanzaro,2026-11-24 18:00:00,2026,Serie B,Juve Stabia,Catanzaro,1.0,3.0,,,,,,,15.0,10.0,6.0,4.0
+fd:I2:20261124:Benevento:Empoli,2026-11-24 19:00:00,2026,Serie B,Benevento,Empoli,5.0,0.0,,,,,,,13.0,12.0,6.0,4.0
+fd:I2:20261124:Cesena:Ascoli,2026-11-24 19:00:00,2026,Serie B,Cesena,Ascoli,5.0,1.0,,,,,,,23.0,24.0,9.0,5.0
+fd:I2:20261124:Palermo:Sudtirol,2026-11-24 19:00:00,2026,Serie B,Palermo,Sudtirol,4.0,1.0,,,,,,,12.0,10.0,4.0,7.0
+fd:I2:20261124:Vicenza:Carrarese,2026-11-24 19:00:00,2026,Serie B,Vicenza,Carrarese,0.0,1.0,,,,,,,12.0,10.0,2.0,2.0
+fd:I2:20261124:Virtus_Entella:Verona,2026-11-24 19:00:00,2026,Serie B,Virtus Entella,Verona,2.0,1.0,,,,,,,11.0,14.0,6.0,5.0
+fd:E1:20261124:Bristol_City:Wrexham,2026-11-24 19:45:00,2026,Championship,Bristol City,Wrexham,1.0,1.0,,,,,,,11.0,10.0,4.0,2.0
+fd:E1:20261124:Cardiff:Preston,2026-11-24 19:45:00,2026,Championship,Cardiff,Preston,0.0,4.0,,,,,,,15.0,15.0,5.0,6.0
+fd:E1:20261124:Charlton:Lincoln,2026-11-24 19:45:00,2026,Championship,Charlton,Lincoln,4.0,0.0,,,,,,,33.0,3.0,13.0,0.0
+fd:E1:20261124:Middlesbrough:Swansea,2026-11-24 19:45:00,2026,Championship,Middlesbrough,Swansea,2.0,1.0,,,,,,,18.0,7.0,7.0,3.0
+fd:E1:20261124:Norwich:QPR,2026-11-24 19:45:00,2026,Championship,Norwich,QPR,1.0,1.0,,,,,,,12.0,7.0,2.0,2.0
+fd:E1:20261124:Portsmouth:West_Ham,2026-11-24 19:45:00,2026,Championship,Portsmouth,West Ham,1.0,0.0,,,,,,,9.0,19.0,1.0,6.0
+fd:E1:20261124:Sheffield_United:Southampton,2026-11-24 19:45:00,2026,Championship,Sheffield United,Southampton,1.0,1.0,,,,,,,20.0,11.0,7.0,3.0
+fd:E1:20261124:Wolverhampton_Wanderers:Derby,2026-11-24 20:00:00,2026,Championship,Wolverhampton Wanderers,Derby,3.0,0.0,,,,,,,39.0,6.0,9.0,1.0
+fd:I2:20261125:Cremonese:Avellino,2026-11-25 18:00:00,2026,Serie B,Cremonese,Avellino,0.0,1.0,,,,,,,20.0,12.0,1.0,5.0
+fd:I2:20261125:Mantova:Arezzo,2026-11-25 19:00:00,2026,Serie B,Mantova,Arezzo,3.0,0.0,,,,,,,20.0,12.0,9.0,2.0
+fd:I2:20261125:Padova:Sampdoria,2026-11-25 19:00:00,2026,Serie B,Padova,Sampdoria,1.0,2.0,,,,,,,12.0,12.0,2.0,4.0
+fd:I2:20261125:Pisa:Modena,2026-11-25 19:00:00,2026,Serie B,Pisa,Modena,1.0,1.0,,,,,,,16.0,12.0,5.0,2.0
+fd:E1:20261125:Bolton:West_Bromwich_Albion,2026-11-25 19:45:00,2026,Championship,Bolton,West Bromwich Albion,1.0,3.0,,,,,,,10.0,10.0,2.0,7.0
+fd:E1:20261125:Burnley:Birmingham,2026-11-25 19:45:00,2026,Championship,Burnley,Birmingham,0.0,2.0,,,,,,,13.0,19.0,4.0,8.0
+fd:E1:20261125:Watford:Blackburn,2026-11-25 19:45:00,2026,Championship,Watford,Blackburn,0.0,1.0,,,,,,,12.0,17.0,3.0,5.0
+fd:E1:20261125:Stoke:Millwall,2026-11-25 20:00:00,2026,Championship,Stoke,Millwall,2.0,1.0,,,,,,,20.0,14.0,6.0,4.0
 understat:32334,2026-11-27 19:30:00,2026,Bundesliga,Werder Bremen,Borussia M.Gladbach,,,,,,,,,,,,
 understat:31687,2026-11-27 19:45:00,2026,Serie A,Venezia,Bologna,,,,,,,,,,,,
 understat:32041,2026-11-27 19:45:00,2026,Ligue 1,Brest,Paris FC,,,,,,,,,,,,
